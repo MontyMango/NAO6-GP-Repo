@@ -4,3 +4,4 @@
 # Group Members:
 - Cameron Harter
 - Le Li Kruczek
+- JAC Kruczek
