@@ -47,7 +47,7 @@ curl http://localhost:11434/api/show -d '{
 ###
 // Chat with the bot (STREAMED)
 // The json will be scattered due to it being "streamed"
-curl http://localhost:11493/api/chat -d '{
+curl http://localhost:11434/api/chat -d '{
   "model": "llama3.2:1b",
   "messages": [
     {
