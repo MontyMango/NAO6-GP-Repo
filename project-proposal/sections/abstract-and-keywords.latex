@@ -1,0 +1,9 @@
+\begin{abstract}
+  This document proposes a project utilizing the \naosix.
+
+  TODO: Finish this. % TODO: Finish this.
+\end{abstract}
+
+\begin{IEEEkeywords}
+  \naosix, NAO6, humanoid robot, LLM, Docker.
+\end{IEEEkeywords}
