@@ -3,7 +3,7 @@ services:
     container_name: ollama
     image: ollama/ollama
     volumes:
-     - '/ollama:/home/mango/.ollama'
+     - '/ollama:~/.ollama'
     ports:
     # Port to expose on the machine : port to expose in the container
      - 11434:11434
