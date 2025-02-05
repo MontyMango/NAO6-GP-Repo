@@ -1,4 +1,40 @@
 \section{Development Team}
 
-(4) Group details with each member's responsibility
-(5) Mutually accepted schedule for group meeting
+The established group for this project includes five members. Their
+names and responsibilities are listed below in
+Table~\ref{table:member_responsibility}. In summary, Shawn and Le intend
+to work on server-\naosix\ and server-browser communication. Cameron
+intends to work on server-Ollama communication and Docker setup. Will
+intends to handle the configuration and maintenance of the server,
+browser, Docker, and \naosix. And finally Jac intends to apply his
+talents toward \naosix\ programming and animations in Choreographe.
+
+\begin{table}[h]
+  \caption{Member Responsibilities}
+  \begin{center}
+    \begin{tabular}{||c|c||}
+      \hline
+      \hline
+      \textbf{Shawn Byers} & Node.js, HTML, FLASK API, Python \\
+      \hline
+      \textbf{Cameron Harter} & Docker, Ollama, Node.js \\
+      \hline
+      \textbf{Will Keeler}
+      & Configuration, Maintenance, Platform, Docker \\
+      \hline
+      \textbf{Jac Kruczek} & Animations, Choreographe, Python \\
+      \hline
+      \textbf{Le Li Kruczek} & Node.js, HTML, FLASK API, Python \\
+      \hline
+      \hline
+    \end{tabular}
+    \label{table:member_responsibility}
+  \end{center}
+\end{table}
+
+Additionally, the members of the group intend to meet once per week on
+Monday mornings as scheduling allows. Not everyone in the group has a
+regular schedule, so some flexibility is required. Some weeks, the group
+members may meet on alternate days and at alternate times. Naturally,
+the group members will also meet each week during the scheduled class
+period.
