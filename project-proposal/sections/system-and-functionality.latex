@@ -9,7 +9,7 @@ A schematic diagram of the system architecture is shown in Fig. \ref{fig:systema
 
 \begin{figure}[h]  
   \centering
-  \includegraphics[width=0.5\textwidth]{Pictures/image.png}
+  \includegraphics[width=0.5\textwidth]{architecture-diagram}
   \caption{This is an example image.}
   \label{fig:systematic_drawing}
 \end{figure}
