@@ -16,6 +16,13 @@
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
+\makeatletter
+\newcommand{\newlineauthors}{%
+  \end{@IEEEauthorhalign}\hfill\mbox{}\par
+  \mbox{}\hfill\begin{@IEEEauthorhalign}
+}
+\makeatother
+
 \newcommand{\naosix}{\textrm{NAO\textsuperscript{6}}}
 
 \begin{document}
@@ -41,7 +48,7 @@ camharte@iu.edu}
 \textit{Indiana University South Bend} \\
 South Bend, United States of America \\
 wkeeler@iu.edu}
-\and
+\newlineauthors
 \IEEEauthorblockN{Jac Kruczek}
 \IEEEauthorblockA{\textit{Computer Science Department} \\
 \textit{Indiana University South Bend} \\
