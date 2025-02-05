@@ -78,9 +78,7 @@ lkruczek@iu.edu}
 
 \input{sections/project-schedule.latex}
 
-\section*{Acknowledgment}
-
-TODO: Decide upon acknowledgments. % TODO: Finish this.
+\input{sections/acknowledgment.latex}
 
 \input{sections/bibliography.latex}
 
