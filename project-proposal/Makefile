@@ -4,7 +4,10 @@ sections += key-technologies.latex project-schedule.latex
 sections += system-and-functionality.latex
 sections := $(sections:%=sections/%)
 
+images := images/architecture-diagram.png
+
 prop_name := Team_1_proposal
 
-$(prop_name).pdf: $(prop_name).latex IEEEtran.cls $(sections)
+$(prop_name).pdf: $(prop_name).latex IEEEtran.cls $(sections) $(images)
+	pdflatex $(prop_name).latex
 	pdflatex $(prop_name).latex
