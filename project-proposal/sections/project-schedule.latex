@@ -3,4 +3,8 @@
 The project includes aspirational enhancements that may be integrated
 based on feasibility and time constraints. Completion remains set for no
 later than the end of the Spring 2025 academic semester, with regular
-reviews to assess progress.
+reviews to assess progress. The goal for February is to implement a
+minimum viable client-server model that facilitates communication
+between Ollama and the \naosix\ using Node.js on the server side. For
+March and April, the project will be in full swing with feature
+development. Late April into early May, the project must be finalized.
