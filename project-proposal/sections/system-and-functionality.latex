@@ -1,31 +1,67 @@
 \section{System and Functionality}
 
 \subsection{Overview of the System}
-The goal of our project is to design and prototype an educational and entertaining application for the NAO$^6$ humanoid robot owned by the Computer Science Department of Indiana University South Bend. The core feature will be a LLM-powered chatbot. The NAO$^6$ robot is developed by SoftBanks Robotics. It is equipped with Intel Atom x5-Z8350 quad-core processor, 2GB of memory, and 8 GB eMMC storage to support a range of interactive applications. In addition, it is equipped with advanced motion capabilities, touch and distance sensors, camera and vision, and voice recognition features. It is a highly-engaging tool for children, students, and seniors.
 
-We propose utilizing a remote server to extend the robot's capabilities. Our system will consist of a Docker container running on a remote SSH server, which includes the full application. When users interact with the NAO$^6$ robot, the robot will send user input to the backend of a web application. The backend will then forward the input to an LLM model API, receives the response, and send it back to the robot. The NAO$^6$ robot will then vocalize the response to the user. Additionally, we plan to integrate entertaining animations into the robot’s interactions. Last but not the least, we will develop a web-based user interface to facilitate interaction with the application.
+The goal of our project is to design and prototype an educational and
+entertaining application for the \naosix\ humanoid robot owned by the
+Computer Science Department of Indiana University South Bend. The core
+feature will be a LLM-powered chatbot. The \naosix\ robot is developed
+by SoftBanks Robotics. It is equipped with Intel Atom x5-Z8350 quad-core
+processor, 2GB of memory, and 8 GB eMMC storage to support a range of
+interactive applications. In addition, it is equipped with advanced
+motion capabilities, touch and distance sensors, camera and vision, and
+voice recognition features. It is a highly-engaging tool for children,
+students, and seniors.
 
-A schematic diagram of the system architecture is shown in Fig. \ref{fig:systematic_drawing}. 
+We propose utilizing a remote server to extend the robot's capabilities.
+Our system will consist of a Docker container running on a remote SSH
+server, which includes the full application. When users interact with
+the \naosix\ robot, the robot will send user input to the backend of a
+web application. The backend will then forward the input to an LLM model
+API, receives the response, and send it back to the robot. The \naosix\
+robot will then vocalize the response to the user. Additionally, we plan
+to integrate entertaining animations into the robot's interactions. Last
+but not the least, we will develop a web-based user interface to
+facilitate interaction with the application.
 
-\begin{figure}[h]  
+A schematic diagram of the system architecture is shown in Fig.
+\ref{fig:systematic_drawing}.
+
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.5\textwidth]{architecture-diagram}
+  \includegraphics[width = 0.5\textwidth]{architecture-diagram}
   \caption{This is an example image.}
   \label{fig:systematic_drawing}
 \end{figure}
 
 \subsection{Key Functions to be Retained}
+
 \begin{itemize}
-\item NAO$^6$ features: full-body movements, touch sensors, infrared and sonar sensors, voice recognition, and 360$^\circ$ vision.
-\item Existing NAO$^6$ apps such as \textit{Presentation}, \textit{Follow Me}, etc. 
-\item WiFi and SSH connectivity of the NAO$^6$ robot.
+  \item
+    \naosix\ features: full-body movements, touch sensors, infrared and
+    sonar sensors, voice recognition, and 360\textdegree\ vision.
+
+  \item
+    Existing \naosix\ apps such as \textit{Presentation}, \textit{Follow
+    Me}, etc.
+
+  \item
+    WiFi and SSH connectivity of the \naosix\ robot.
 \end{itemize}
 
 \subsection{List of Functions to be Improved by the Project}
-\begin{itemize}
-\item An intuitive web application to control and interact with the NAO$^6$ robot.
-\item Enhance voice recognition with AI models.
-\item Create a chatbot application powered by LLM models. 
-\item Include fun animations, such as \textit{Star Wars} animated story.
-\end{itemize}
 
+\begin{itemize}
+  \item
+    An intuitive web application to control and interact with the
+    \naosix\ robot.
+
+  \item
+    Enhance voice recognition with AI models.
+
+  \item
+    Create a chatbot application powered by LLM models.
+
+  \item
+    Include fun animations, such as \textit{Star Wars} animated story.
+\end{itemize}

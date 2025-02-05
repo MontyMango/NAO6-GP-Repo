@@ -3,35 +3,73 @@
 \subsection{Key Technologies and Innovations}
 
 \begin{itemize}
-\item \textbf{Container Technology}
-In this project we are planning to use Docker as a platform to host our services on. Containerizing our services is the main reason we chose Docker. With containers we can develop on our personal machine and then deploy to another machine like the cloud without making any special configurations. There are other desirable features like container networking, creating multiple containers from a single compose file, and monitoring the health of your docker containers. 
-\item \textbf{LLM} 
-Ollama will be used to host our large language model (LLM) within docker. Ollama includes an API backend that can be used to chat with the large language model and manage ollama's services like installing, removing, and swapping to other large language models (Like Deepseek R1, Meta’s llama, and more models). 
-\item \textbf{Web Application}
-Node.js will be used to host our web application and API server in one container. This API server will be used as a “middleman” to receive requests and send responses from and to the web application and the NAO6 robot. The web application will control which application the NAO6 robot is running, it also shows which model is being run on the ollama server. The user can change ollama’s LLM from the web application as well. 
-\item \textbf{Humanoid Robot} The application will be deployed directly on the NAO$^6$ robot, allowing it to engage in conversations with users while performing interactive animations. The robot will communicate with the backend of the application through a WiFi connection.
+  \item \textbf{Container Technology}
+
+    In this project we are planning to use Docker as a platform to host
+    our services on. Containerizing our services is the main reason we
+    chose Docker. With containers we can develop on our personal machine
+    and then deploy to another machine like the cloud without making any
+    special configurations. There are other desirable features like
+    container networking, creating multiple containers from a single
+    compose file, and monitoring the health of your docker containers.
+
+  \item \textbf{LLM}
+
+    Ollama will be used to host our large language model (LLM) within
+    docker. Ollama includes an API backend that can be used to chat with
+    the large language model and manage ollama's services like
+    installing, removing, and swapping to other large language models
+    (Like Deepseek R1, Meta's llama, and more models).
+
+  \item \textbf{Web Application}
+
+    Node.js will be used to host our web application and API server in
+    one container. This API server will be used as a ``middleman'' to
+    receive requests and send responses from and to the web application
+    and the \naosix\ robot. The web application will control which
+    application the \naosix\ robot is running, it also shows which model
+    is being run on the ollama server. The user can change ollama's LLM
+    from the web application as well.
+
+  \item \textbf{Humanoid Robot}
+
+    The application will be deployed directly on the \naosix\ robot,
+    allowing it to engage in conversations with users while performing
+    interactive animations. The robot will communicate with the backend
+    of the application through a WiFi connection.
 \end{itemize}
 
 \subsection{Required Hardware and Software}
-The services that we are planning to host on docker are ollama, and node.js. Ollama is going to be used for hosting large language models (LLMs) and includes an API server to manage and talk to these large language models. Node.js will be used to host our web application and API server in one container. The programming language that the API server will use is JavaScript and will be used as a “middleman” to receive requests from and send responses to the web application and the NAO6 robot. The web application will control which application the NAO6 robot is running, it also shows which model is being run on the ollama server. The user can change ollama’s LLM from the web application as well. For the NAO6 robot we are planning to implement a Python program that makes the robot able to send requests to and receive responses from the API server. 
-\\
 
-Hardware Needed: 
+The services that we are planning to host on docker are ollama, and
+Node.js. Ollama is going to be used for hosting large language models
+(LLMs) and includes an API server to manage and talk to these large
+language models. Node.js will be used to host our web application and
+API server in one container. The programming language that the API
+server will use is JavaScript and will be used as a ``middleman'' to
+receive requests from and send responses to the web application and the
+\naosix\ robot. The web application will control which application the
+\naosix\ robot is running, it also shows which model is being run on the
+ollama server. The user can change ollama's LLM from the web application
+as well. For the \naosix\ robot we are planning to implement a Python
+program that makes the robot able to send requests to and receive
+responses from the API server. \\
+
+Hardware Needed:
 
 \begin{itemize}
-\item NAO6 Robot 
-\item Web Server 
-\item Computer with GPU 
+  \item \naosix\ Robot
+  \item Web Server
+  \item Computer with GPU
 \end{itemize}
 
-Software Needed: 
+Software Needed:
 
 \begin{itemize}
-\item Any operating system  
-\item Docker engine 
-\item Ollama docker container 
-\item Node.js docker container
-\item Chreographe, the programming software of NAO$^6$
-\item Python
+  \item Any operating system
+  \item Docker engine
+  \item Ollama docker container
+  \item Node.js docker container
+  \item Choreographe, the programming software of \naosix
+  \item Python
 \end{itemize}
-
