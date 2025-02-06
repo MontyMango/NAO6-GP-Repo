@@ -1,5 +1,22 @@
 \section{Background and Objective}
 
-(1) The NAO6 humanoid robot is widely used in education, research, and human-robot interaction studies. It serves as a powerful tool for teaching programming, artificial intelligence, and robotics concepts in classrooms and universities. In therapy and special education, NAO6 helps engage children with autism by providing structured interactions and social skill development. Businesses and public spaces use NAO6 for customer engagement, guiding visitors, and delivering interactive presentations. With its ability to recognize speech, perform gestures, and respond intelligently, NAO6 is a versatile platform for exploring AI-driven communication and human-centered robotics.
+The \naosix\ humanoid robot is widely used in education, research, and
+human-robot interaction studies. It serves as a powerful tool for
+teaching programming, artificial intelligence, and robotics concepts in
+classrooms and universities. In therapy and special education, \naosix\
+helps engage children with autism by providing structured interactions
+and social skill development. Businesses and public spaces use \naosix\
+for engaging customers, guiding visitors, and delivering interactive
+presentations. With its ability to recognize speech, perform gestures,
+and respond intelligently, the \naosix\ is a versatile platform for
+exploring AI-driven communication and human-centered robotics.
 
-(2) Large Language Models (LLMs) are widely used in everyday applications to improve communication and streamline tasks. They are integrated into customer service chatbots, providing real-time support and resolving queries efficiently. In education, LLMs assist with tutoring by answering questions, explaining concepts, and offering personalized learning experiences. When combined with robots like the NAO6, LLMs enhance human-robot interactions by enabling robots to engage in more natural, intelligent conversations, making them valuable tools for education, research, and entertainment.
+Large Language Models (LLMs) are widely used in everyday applications to
+improve communication and streamline tasks. They are integrated into
+customer service chatbots, providing real-time support and resolving
+queries efficiently. In education, LLMs assist with tutoring by
+answering questions, explaining concepts, and offering personalized
+learning experiences. When combined with robots like the \naosix, LLMs
+enhance human-robot interactions by enabling robots to engage in more
+natural, intelligent conversations, making them valuable tools for
+education, research, and entertainment.

@@ -1,15 +1,12 @@
 \section{Introduction}
 
-This project aims to develop an interactive and educational chatbot
-application for the \naosix\ humanoid robot, enhancing its capabilities
-through large language model (LLM) integration. Hosted by the Computer
-Science Department at Indiana University South Bend, the \naosix\ robot
-will leverage advanced AI to engage users in meaningful conversations
-while performing interactive animations.
-
-To achieve this, the system will utilize a remote server running a
-Docker-based application, enabling seamless communication between the
-\naosix\ robot and an LLM-powered backend. User inputs will be processed
-via a web application, allowing for real-time interactions and voice
-responses. Additional features, such as an intuitive web interface and
-entertaining animations, will further enhance the user experience.
+Humanoid robots frequently make the news, especially in early January
+during the annual Consumer Electronics Show (CES). Many are fond of them
+for their human-like characteristics and abilities. It seems many are
+just as wary of these machines. Large Language Models (LLMs) have much
+the same reputation. They are seen as an emerging technology that has
+not yet been tamed. In an effort to combine these two innovations, the
+members of this group will put forth in this proposal a project
+involving the \naosix\ humanoid robot, Ollama, and a web user interface.
+The main application will be hosted on a server in Docker, and the
+project will be concluded in late April.

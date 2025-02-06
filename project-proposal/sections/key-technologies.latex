@@ -6,7 +6,7 @@
   \item \textbf{Container Technology}
 
     In this project we are planning to use Docker as a platform to host
-    our services on. Containerizing our services is the main reason we
+    our services. Containerizing our services is the main reason we
     chose Docker. With containers we can develop on our personal machine
     and then deploy to another machine like the cloud without making any
     special configurations. There are other desirable features like
@@ -17,7 +17,7 @@
 
     Ollama will be used to host our large language model (LLM) within
     docker. Ollama includes an API backend that can be used to chat with
-    the large language model and manage ollama's services like
+    the large language model and manage Ollama's services like
     installing, removing, and swapping to other large language models
     (Like Deepseek R1, Meta's llama, and more models).
 
@@ -28,7 +28,7 @@
     receive requests and send responses from and to the web application
     and the \naosix\ robot. The web application will control which
     application the \naosix\ robot is running, it also shows which model
-    is being run on the ollama server. The user can change ollama's LLM
+    is being run on the Ollama server. The user can change Ollama's LLM
     from the web application as well.
 
   \item \textbf{Humanoid Robot}
@@ -36,12 +36,12 @@
     The application will be deployed directly on the \naosix\ robot,
     allowing it to engage in conversations with users while performing
     interactive animations. The robot will communicate with the backend
-    of the application through a WiFi connection.
+    of the application through a Wi\nobreakdash-Fi connection.
 \end{itemize}
 
 \subsection{Required Hardware and Software}
 
-The services that we are planning to host on docker are ollama, and
+The services that we are planning to host on Docker are Ollama and
 Node.js. Ollama is going to be used for hosting large language models
 (LLMs) and includes an API server to manage and talk to these large
 language models. Node.js will be used to host our web application and
@@ -50,7 +50,7 @@ server will use is JavaScript and will be used as a ``middleman'' to
 receive requests from and send responses to the web application and the
 \naosix\ robot. The web application will control which application the
 \naosix\ robot is running, it also shows which model is being run on the
-ollama server. The user can change ollama's LLM from the web application
+Ollama server. The user can change Ollama's LLM from the web application
 as well. For the \naosix\ robot we are planning to implement a Python
 program that makes the robot able to send requests to and receive
 responses from the API server. \\

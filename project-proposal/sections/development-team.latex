@@ -3,7 +3,7 @@
 The established group for this project includes five members. Their
 names and responsibilities are listed below in
 Table~\ref{table:member_responsibility}. In summary, Shawn and Le intend
-to work on server-\naosix\ and server-browser communication. Cameron
+to work on server-robot and server-browser communication. Cameron
 intends to work on server-Ollama communication and Docker setup. Will
 intends to handle the configuration and maintenance of the server,
 browser, Docker, and \naosix. And finally Jac intends to apply his

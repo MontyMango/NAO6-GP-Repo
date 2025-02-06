@@ -7,4 +7,4 @@ reviews to assess progress. The goal for February is to implement a
 minimum viable client-server model that facilitates communication
 between Ollama and the \naosix\ using Node.js on the server side. For
 March and April, the project will be in full swing with feature
-development. Late April into early May, the project must be finalized.
+development. In late April, the project must be finalized.

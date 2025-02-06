@@ -8,6 +8,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{siunitx}
 \usepackage{textcomp}
 \usepackage{xcolor}
 
@@ -77,6 +78,8 @@ lkruczek@iu.edu}
 \input{sections/development-team.latex}
 
 \input{sections/project-schedule.latex}
+
+\input{sections/conclusion.latex}
 
 \input{sections/acknowledgment.latex}
 

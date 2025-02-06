@@ -1,0 +1,7 @@
+\section{Conclusion}
+
+In summary, the project proposed in this paper will utilize the \naosix\
+robot alongside a server hosting Ollama and a web interface in Docker.
+Some of the robot's original capabilities will be maintained, while
+others will be improved. The \naosix\ is a truly interesting tool. May
+it be put to good use.

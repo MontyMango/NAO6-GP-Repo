@@ -1,7 +1,7 @@
 sections := abstract-and-keywords.latex background-and-objective.latex
 sections += bibliography.latex development-team.latex introduction.latex
 sections += key-technologies.latex project-schedule.latex
-sections += system-and-functionality.latex
+sections += system-and-functionality.latex conclusion.latex
 sections := $(sections:%=sections/%)
 
 images := images/architecture-diagram.png
