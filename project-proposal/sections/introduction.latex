@@ -1,4 +1,4 @@
 \section{Introduction}
-This is the introductory paragraph.
+This project aims to develop an interactive and educational chatbot application for the NAO6 humanoid robot, enhancing its capabilities through large language model (LLM) integration. Hosted by the Computer Science Department at Indiana University South Bend, the NAO6 robot will leverage advanced AI to engage users in meaningful conversations while performing interactive animations.
 
-TODO: Finish this. % TODO: Finish this.
+To achieve this, the system will utilize a remote server running a Docker-based application, enabling seamless communication between the NAO6 robot and an LLM-powered backend. User inputs will be processed via a web application, allowing for real-time interactions and voice responses. Additional features, such as an intuitive web interface and entertaining animations, will further enhance the user experience.
