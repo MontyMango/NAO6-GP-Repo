@@ -15,13 +15,13 @@ curl http://localhost:11434/api/ps
 ###
 // Pull a model
 curl http://localhost:11434/api/pull -d '{
-  "model": "llama3.2:1b"
+  "model": "qwen:0.5b"
 }'
 
 ###
 // Load a model
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2:1b",
+  "model": "qwen:0.5b",
   "messages": []
 }'
 
@@ -48,7 +48,7 @@ curl http://localhost:11434/api/show -d '{
 // Chat with the bot (STREAMED)
 // The json will be scattered due to it being "streamed"
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2:1b",
+  "model": "qwen:0.5b",
   "messages": [
     {
       "role": "user",
@@ -61,11 +61,11 @@ curl http://localhost:11434/api/chat -d '{
 // Chat with the bot (NOT STREAMED)
 // The json will be complete
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2:1b",
+  "model": "qwen:0.5b",
   "messages": [
     {
       "role": "user",
-      "content": "what is the weather like today in indianapolis?"
+      "content": "hi"
     }
   ],
   "stream": false
@@ -83,3 +83,4 @@ curl http://localhost:11434/api/chat -d '{
     }
   ]
 }'
+

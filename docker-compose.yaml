@@ -1,9 +1,25 @@
 services:
+  # nodejs:
+  #   build: .
+  #   container_name: nodejs
+  #   ports:
+  #     - "8080:8080"
+
   ollama:
     container_name: ollama
     image: ollama/ollama
     volumes:
-     - '/ollama:~/.ollama'
+     - '/ollama:/home/mango/.ollama'
     ports:
     # Port to expose on the machine : port to expose in the container
      - 11434:11434
+    networks:
+      - backend
+    restart: on-failure
+
+networks:
+  backend:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/31"
