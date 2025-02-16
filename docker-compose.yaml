@@ -1,3 +1,5 @@
+# Docker-compose help comes from: ai/chat-demo:latest
+
 services:
   # nodejs:
   #   build: .
@@ -5,21 +7,55 @@ services:
   #   ports:
   #     - "8080:8080"
 
+  # backend:
+  #   container_name: api-server
+  #   # image: MontyMango/AI-API-Server
+  #   build: .
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - MODEL_HOST=http://ollama:11434
+  #   depends_on:
+  #     ollama:
+  #       condition: service_healthy
+
+
   ollama:
     container_name: ollama
     image: ollama/ollama
     volumes:
-     - '/ollama:/home/mango/.ollama'
+     - '/ollama:/Users/cameronharter/.ollama'
     ports:
     # Port to expose on the machine : port to expose in the container
      - 11434:11434
-    networks:
-      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:11434/api/tags | jq -e \".models[] | select(.name == \\\"${MODEL:-mistral:latest}\\\")\" > /dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 50
+      start_period: 600s
+    # If we need to limit the AI model, we can use this
+    deploy:
+      resources:
+        limits:
+          cpus: '4'   # Preferrably 4 for lightweight models, 16 for heavy models
+          memory: 8G
+        reservations:
+          cpus: '0.25'
+          memory: 2G  # Lightweight models require 2GB's of memory
     restart: on-failure
 
-networks:
-  backend:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.16.238.0/31"
+volumes:
+  ollama_data:
+    name: ollama_data
+
+# networks:
+#   backend:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: "172.16.238.0/31"
+
+# volumes:
+#   ollama_data:
+#    name: ollama_data

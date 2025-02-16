@@ -39,7 +39,9 @@ curl http://localhost:11434/api/show -d '{
 }'
 
 
-
+curl -X DELETE http://localhost:11434/api/delete -d '{
+  "model": "llama3:13b"
+}'
 
 
 
