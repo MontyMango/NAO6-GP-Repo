@@ -1,0 +1,88 @@
+// This is just a reference to their API's
+// Find more commands: https://github.com/ollama/ollama/blob/main/docs/api.md#list-local-models
+// If using VSCode, I'd recommend installing "REST Client" to send requests.
+// Make sure the ollama docker container is running before executing these commands!
+
+
+###
+// Get the available models on the ollama server
+curl http://localhost:11434/api/tags
+
+###
+// Lists currently running models
+curl http://localhost:11434/api/ps
+
+###
+// Pull a model
+curl http://localhost:11434/api/pull -d '{
+  "model": "qwen:0.5b"
+}'
+
+###
+// Load a model
+curl http://localhost:11434/api/chat -d '{
+  "model": "qwen:0.5b",
+  "messages": []
+}'
+
+###
+// Unload a model
+curl http://localhost:11434/api/chat -d '{
+  "model": "llama3.2:1b",
+  "messages": [],
+  "keep_alive": 0
+}'
+###
+// Display information about a model
+curl http://localhost:11434/api/show -d '{
+  "model": "llama3.2:1b"
+}'
+
+
+curl -X DELETE http://localhost:11434/api/delete -d '{
+  "model": "llama3:13b"
+}'
+
+
+
+
+###
+// Chat with the bot (STREAMED)
+// The json will be scattered due to it being "streamed"
+curl http://localhost:11434/api/chat -d '{
+  "model": "qwen:0.5b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi"
+    }
+  ]
+}'
+
+###
+// Chat with the bot (NOT STREAMED)
+// The json will be complete
+curl http://localhost:11434/api/chat -d '{
+  "model": "qwen:0.5b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi"
+    }
+  ],
+  "stream": false
+}'
+
+###
+// Chat with images (For long shot project)
+curl http://localhost:11434/api/chat -d '{
+  "model": "llava:7b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "what is in this image?",
+      "images": ["https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2111331.jpg&f=1&nofb=1&ipt=77b8d8ea6a751d20b0746afe0f7b9487d460c361ae1c1cd7d259385bde996d8b&ipo=images"]
+    }
+  ]
+}'
+
