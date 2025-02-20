@@ -24,7 +24,7 @@ services:
     container_name: ollama
     image: ollama/ollama
     volumes:
-     - '/ollama:/Users/cameronharter/.ollama'
+     - '/ollama:./.ollama'  # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
     ports:
     # Port to expose on the machine : port to expose in the container
      - 11434:11434
@@ -49,12 +49,12 @@ volumes:
   ollama_data:
     name: ollama_data
 
-# networks:
-#   backend:
-#     ipam:
-#       driver: default
-#       config:
-#         - subnet: "172.16.238.0/31"
+networks:
+  backend:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/31"
 
 # volumes:
 #   ollama_data:

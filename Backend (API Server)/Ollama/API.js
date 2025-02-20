@@ -347,6 +347,7 @@ const chatToModel = (modelToUse, message=[], shouldTextbeStreamed=false) =>    {
 
 
 
+
 // FOR TESTING PURPOSES ONLY 
 // getDownloadedModels();
 // getRunningModels();
@@ -357,4 +358,4 @@ const chatToModel = (modelToUse, message=[], shouldTextbeStreamed=false) =>    {
 // getModelInformation("qwen2.5:0.5b");
 // downloadModel("qwen2.5:0.5b");
 // loadModel("qwen2.5:0.5b");
-unloadModel("qwen2.5:0.5b");
+// unloadModel("qwen2.5:0.5b");
