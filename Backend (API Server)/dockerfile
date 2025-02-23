@@ -1,0 +1,18 @@
+# Pull the latest node container
+FROM node:latest
+
+LABEL version="0.1"
+LABEL description="This docker image is used to *magically* make the NAO6 robot into an AI chatbot (Assembly required)"
+
+# https://www.geeksforgeeks.org/how-to-dockerize-an-expressjs-app/
+# Copy files over into the node container
+WORKDIR /app
+COPY ./* /app/
+COPY ./Ollama/* /app/Ollama/
+COPY ./Speech-To-Text/* /app/Speech-To-Test/
+
+# npm run start: installs dependencies and runs the API server
+CMD ["npm", "run", "start"]
+
+# Expose port 45679 to access our API
+EXPOSE 45679

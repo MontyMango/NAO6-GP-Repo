@@ -7,17 +7,16 @@ services:
   #   ports:
   #     - "8080:8080"
 
-  # backend:
-  #   container_name: api-server
-  #   # image: MontyMango/AI-API-Server
-  #   build: .
-  #   ports:
-  #     - "8000:8000"
-  #   environment:
-  #     - MODEL_HOST=http://ollama:11434
-  #   depends_on:
-  #     ollama:
-  #       condition: service_healthy
+  backend:
+    container_name: api-server
+    build: "./Backend (API Server)/"
+    ports:
+      - "45679:45679"
+    environment:
+      - MODEL_HOST=http://ollama:11434
+    depends_on:
+      ollama:
+        condition: service_healthy
 
 
   ollama:
@@ -25,9 +24,10 @@ services:
     image: ollama/ollama
     volumes:
      - '/ollama:./.ollama'  # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
-    ports:
     # Port to expose on the machine : port to expose in the container
+    ports:
      - 11434:11434
+    # Check to see if the container is running 
     healthcheck:
       test: ["CMD-SHELL", "curl -s http://localhost:11434/api/tags | jq -e \".models[] | select(.name == \\\"${MODEL:-mistral:latest}\\\")\" > /dev/null"]
       interval: 10s
@@ -55,7 +55,3 @@ networks:
       driver: default
       config:
         - subnet: "172.16.238.0/31"
-
-# volumes:
-#   ollama_data:
-#    name: ollama_data
