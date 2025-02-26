@@ -9,23 +9,23 @@ Links that helped here:
 */
 
 // Change the LLAMAURL if you are deploying the llama in a different location than your local environment!
-const LLAMAURL = 'http://172.16.238.0:11434/api/';
+const LLAMAURL = 'http://10.0.60.2:11434/api/';
 
-// Available large language models | More Models Here: https://ollama.com/search
-// Key - Name to display on the website, Value - Model to use in API
-const LLM_MODELS = {
-    "DeepSeek-R1 (8b)" : "deepseek-r1:8b",   // 8b parameters
-    "Llama 3.1 (8b)" : "llama3.1",           // 8b parameters
-    "Llama 3.2 (3b)" : "llama3.2",           // 3b parameters
-    "Gemma (7b)": "gemma:7b",                // 7b parameters
-    "Qwen 2.5 (0.5b)" : "quen2.5:0.5b"       // 0.5b parameters (Used for testing!)
-}
+// // Available large language models | More Models Here: https://ollama.com/search
+// // Key - Name to display on the website, Value - Model to use in API
+// const LLM_MODELS = {
+//     "DeepSeek-R1 (8b)" : "deepseek-r1:8b",   // 8b parameters
+//     "Llama 3.1 (8b)" : "llama3.1",           // 8b parameters
+//     "Llama 3.2 (3b)" : "llama3.2",           // 3b parameters
+//     "Gemma (7b)": "gemma:7b",                // 7b parameters
+//     "Qwen 2.5 (0.5b)" : "quen2.5:0.5b"       // 0.5b parameters (Used for testing!)
+// }
 
-// (For the long stretch) Available Vision LLMs
-const VISION_LLM_MODELS = {
-    "LLaVa 1.6 (7b)" : "llava:7b",                  // 7b parameters
-    "Llama 3.2 - Vision (11b)" : "llama3.2-vision"  // 11b parameters
-}
+// // (For the long stretch) Available Vision LLMs
+// const VISION_LLM_MODELS = {
+//     "LLaVa 1.6 (7b)" : "llava:7b",                  // 7b parameters
+//     "Llama 3.2 - Vision (11b)" : "llama3.2-vision"  // 11b parameters
+// }
 
 
 
@@ -53,15 +53,20 @@ EXAMPLE JSON:
 }
 */
 export const getDownloadedModels = () => {
-    console.log("Getting list of models from: " + `${LLAMAURL}tags`)
-    fetch(`${LLAMAURL}tags`)
+    console.log("Getting list of models from: " + `${LLAMAURL}tags`);
+
+    try {
+        fetch(`${LLAMAURL}tags`)
         .then(function(response)    {
-            return response.json()
+            return response.json();
         })
         .then(function(data)    {
             console.log(data);
-            return data;
-        });
+            return data;        
+        })
+    } catch (error) {
+        console.error("getDownloadedModels error:", error);
+    }
 }
 
 
@@ -110,52 +115,56 @@ export const getModelInformation = (model) =>  {
 
 export const downloadModel = (modelToDownload) =>    {
     console.log("Downloading " + modelToDownload);
-    fetch(`${LLAMAURL}pull`,    {
-        "method": "POST",
-        "body": JSON.stringify({
-            "model": modelToDownload
-        }),
-        "headers":    {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    .then((response) => response.body)
-        .then((rb) => {
-            const reader = rb.getReader();
-
-            return new ReadableStream({
-                start(controller) {
-                    // The following function handles each data chunk
-                    function push() {
-                    // "done" is a Boolean and value a "Uint8Array"
-                    reader.read().then(({ done, value }) => {
-                        // If there is no more data to read
-                        if (done) {
-                            console.log("done", done);
-                            controller.close();
-                            return;
-                        }
-                        // Get the data and send it to the browser via the controller
-                        controller.enqueue(value);
-                        // Check chunks by logging to the console
-                        console.log(done, value);
-                        push();
-                    });
-                }
-
-                push();
-            },
-            });
+    try {
+        fetch(`${LLAMAURL}pull`,    {
+            "method": "POST",
+            "body": JSON.stringify({
+                "model": modelToDownload
+            }),
+            "headers":    {
+                "Content-type": "application/json; charset=UTF-8"
+            }
         })
-        .then((stream) =>
-            // Respond with our stream
-            new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
-        )
-        .then((result) => {
-            // Do things with result
-            console.log(result);
-            return result;
-    });
+        .then((response) => response.body)
+            .then((rb) => {
+                const reader = rb.getReader();
+    
+                return new ReadableStream({
+                    start(controller) {
+                        // The following function handles each data chunk
+                        function push() {
+                        // "done" is a Boolean and value a "Uint8Array"
+                        reader.read().then(({ done, value }) => {
+                            // If there is no more data to read
+                            if (done) {
+                                console.log("done", done);
+                                controller.close();
+                                return;
+                            }
+                            // Get the data and send it to the browser via the controller
+                            controller.enqueue(value);
+                            // Check chunks by logging to the console
+                            console.log(done, value);
+                            push();
+                        });
+                    }
+    
+                    push();
+                },
+                });
+            })
+            .then((stream) =>
+                // Respond with our stream
+                new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
+            )
+            .then((result) => {
+                // Do things with result
+                console.log(result);
+                return result;
+        });
+    } catch (error) {
+        console.log("Download Model error", error);
+    }
     // If {"status":"success"}, this means that the model has been pulled.
 }
 

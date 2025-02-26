@@ -7,29 +7,32 @@ services:
   #   ports:
   #     - "8080:8080"
 
-  backend:
+  api-server:
     container_name: api-server
     build: "./Backend (API Server)/"
+    restart: always
     ports:
       - "45679:45679"
-    environment:
-      - MODEL_HOST=http://ollama:11434
-    depends_on:
-      ollama:
-        condition: service_healthy
+    networks:
+      backend:
+        ipv4_address: 10.0.60.3
+  # This makes the ollama container wait infinitely
+  #   depends_on:
+  #     ollama:
+  #       condition: service_healthy
 
 
   ollama:
     container_name: ollama
     image: ollama/ollama
     volumes:
-     - '/ollama:./.ollama'  # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
+     - '/ollama:/ollama'  # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
     # Port to expose on the machine : port to expose in the container
     ports:
      - 11434:11434
     # Check to see if the container is running 
     healthcheck:
-      test: ["CMD-SHELL", "curl -s http://localhost:11434/api/tags | jq -e \".models[] | select(.name == \\\"${MODEL:-mistral:latest}\\\")\" > /dev/null"]
+      test: ["CMD-SHELL", "curl -s http://10.0.60.4:11434/api/tags | jq -e \".models[] | select(.name == \\\"${MODEL:-mistral:latest}\\\")\" > /dev/null"]
       interval: 10s
       timeout: 5s
       retries: 50
@@ -43,7 +46,10 @@ services:
         reservations:
           cpus: '0.25'
           memory: 2G  # Lightweight models require 2GB's of memory
-    restart: on-failure
+    restart: always
+    networks:
+      backend:
+        ipv4_address: 10.0.60.2
 
 volumes:
   ollama_data:
@@ -51,7 +57,7 @@ volumes:
 
 networks:
   backend:
+    driver: bridge
     ipam:
-      driver: default
       config:
-        - subnet: "172.16.238.0/31"
+        - subnet: "10.0.60.0/28"

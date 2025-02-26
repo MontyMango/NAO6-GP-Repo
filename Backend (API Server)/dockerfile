@@ -9,7 +9,7 @@ LABEL description="This docker image is used to *magically* make the NAO6 robot 
 WORKDIR /app
 COPY ./* /app/
 COPY ./Ollama/* /app/Ollama/
-COPY ./Speech-To-Text/* /app/Speech-To-Test/
+# COPY ./Speech-To-Text/* /app/Speech-To-Test/
 
 # npm run start: installs dependencies and runs the API server
 CMD ["npm", "run", "start"]

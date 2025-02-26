@@ -12,11 +12,16 @@ import  {
 } from './Ollama/Ollama-API.js';
 
 import express from 'express';
-const app = express();
+
+// Things that can be changed without destroying anything!!!
 const port = 45679;
+const TIMEOUT_TIME_IN_SECONDS = 1;
+
 
 // Tell express.js to expect JSON requests.
+const app = express();
 app.use(express.json());
+app.listen().setTimeout(5000);
 
 // CHAT WITH THE AI
 // Expected Request Format: { model: 'modelName', message: 'message', streamedText: True/False }
@@ -24,7 +29,8 @@ app.get('/chat', (req, res) =>  {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(chatToModel(jsonData.model, jsonData.message, jsonData.streamedText));
+        const response = chatToModel(jsonData.model, jsonData.message, jsonData.streamedText)
+        res.send(response);
     } catch (error) {
         console.log('/chat error', error);
     }
@@ -36,7 +42,7 @@ app.get('/modelinfo', (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(getModelInformation(jsonData.model));
+        res.json(getModelInformation(jsonData.model));
     } catch (error) {
         console.log('/modelinfo error', error);
     }
@@ -48,7 +54,7 @@ app.get('/modelsrunning', (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(getRunningModels())
+        res.json(getRunningModels())
     } catch (error) {
         console.log('/mdelsrunning error', error);
     }
@@ -60,7 +66,7 @@ app.get('/downloaded-models', (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(getDownloadedModels())
+        res.json(getDownloadedModels())
     } catch (error) {
         console.log('/modelsrunning error', error);
     }
@@ -69,10 +75,15 @@ app.get('/downloaded-models', (req, res) => {
 // DOWNLOAD A MODEL
 // Expected Request Format: { model: 'modelName' }
 app.put('/download', (req, res) => {
+    res.setTimeout(TIMEOUT_TIME_IN_SECONDS, () =>   {
+        console.error("Request has timed out.")
+        res.status(408).send('Request timeout.')
+    });
     const jsonData = req.body;
     console.log(jsonData);
+    
     try {
-        res.send(downloadModel(jsonData.model));
+        res.json(downloadModel(jsonData.model));
     } catch (error) {
         console.log('/download error', error);
     }
@@ -84,7 +95,7 @@ app.put('/load', (req, res) =>  {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(loadModel(jsonData.model));
+        res.json(loadModel(jsonData.model));
     } catch (error) {
         console.log('/unload error', error);
     }
@@ -96,7 +107,7 @@ app.put('/unload', (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(unloadModel(jsonData.model));
+        res.json(unloadModel(jsonData.model));
     } catch (error) {
         console.log('/unload error', error);
     }
@@ -108,12 +119,22 @@ app.delete('/remove', (req, res) => {
     const jsonData = req.body;
     console.log(jsonData);
     try {
-        res.send(deleteModel(jsonData.model));
+        res.json(deleteModel(jsonData.model));
     } catch (error) {
         console.log('/remove error', error);
     }
 });
 
+// TIMEOUT
+// https://stackoverflow.com/questions/21708208/express-js-response-timeout#21708822
+function haltOnTimedout (req, res, next) {
+    if(!req.timedout)   {
+        next();
+    }
+    else    {
+        console.error("Request timed out :(")
+    }
+}
 
 app.listen(port, () =>  {
     console.log(`Server is running at: http://localhost:${port}`);

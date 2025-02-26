@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/MontyMango/NAO6-GP-Repo#readme",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "connect-timeout": "^1.9.0",
     "express": "^4.21.2"
   }
 }
