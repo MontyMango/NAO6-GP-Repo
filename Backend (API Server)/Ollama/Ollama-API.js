@@ -1,5 +1,4 @@
 // Cameron Harter 2025
-
 /*
 Links that helped here: 
 1. https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/
@@ -7,6 +6,7 @@ Links that helped here:
 3. Make the JSON streamable: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
 4. Fix undefined non-streamable functions: https://stackoverflow.com/questions/40385133/retrieve-data-from-a-readablestream-object#40403285
 */
+// ALL FUNCTIONS NEED TO BE ASYNCRONOUS SO THAT THE JSON CAN BE RETURNED SUCCESSFULLY
 
 // Change the LLAMAURL if you are deploying the llama in a different location than your local environment!
 const LLAMAURL = 'http://10.0.60.2:11434/api/';
@@ -52,18 +52,17 @@ EXAMPLE JSON:
   ]
 }
 */
-export const getDownloadedModels = () => {
+export const getDownloadedModels = async () => {
     console.log("Getting list of models from: " + `${LLAMAURL}tags`);
-
     try {
-        fetch(`${LLAMAURL}tags`)
+        return fetch(`${LLAMAURL}tags`)
         .then(function(response)    {
             return response.json();
         })
         .then(function(data)    {
             console.log(data);
             return data;        
-        })
+        });
     } catch (error) {
         console.error("getDownloadedModels error:", error);
     }
@@ -73,50 +72,58 @@ export const getDownloadedModels = () => {
 
 
 
-export const getRunningModels = () =>  {
+export const getRunningModels = async () =>  {
     console.log("Getting list of currently running models from: " + `${LLAMAURL}ps`)
-    fetch(`${LLAMAURL}ps`)
+    try {
+        return fetch(`${LLAMAURL}ps`)
+            .then(function(response)    {
+                return response.json()
+            })
+            .then(function(data)    {
+                console.log(data);
+                return data;
+        });
+    } catch (error) {
+        console.error("getRunningModels error:", error);
+    }
+}
+
+
+
+
+
+export const getModelInformation = async (model) =>  {
+    console.log("Getting model information from: " + `${LLAMAURL}pull`);
+    try {
+        return fetch(`${LLAMAURL}show`,    {
+            "method": "POST",
+            "body": JSON.stringify({
+                "model": model
+            }),
+            "headers":    {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
         .then(function(response)    {
             return response.json()
         })
         .then(function(data)    {
             console.log(data);
             return data;
-    });
+        });
+    } catch (error) {
+        console.log("getModelInformation error:", error);
+    }
 }
 
 
 
 
 
-export const getModelInformation = (model) =>  {
-    console.log("Getting model information from: " + `${LLAMAURL}pull`)
-    fetch(`${LLAMAURL}show`,    {
-        "method": "POST",
-        "body": JSON.stringify({
-            "model": model
-        }),
-        "headers":    {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    .then(function(response)    {
-        return response.json()
-    })
-    .then(function(data)    {
-        console.log(data);
-        return data;
-    });
-}
-
-
-
-
-
-export const downloadModel = (modelToDownload) =>    {
+export const downloadModel = async (modelToDownload) =>    {
     console.log("Downloading " + modelToDownload);
     try {
-        fetch(`${LLAMAURL}pull`,    {
+        return fetch(`${LLAMAURL}pull`,    {
             "method": "POST",
             "body": JSON.stringify({
                 "model": modelToDownload
@@ -128,7 +135,7 @@ export const downloadModel = (modelToDownload) =>    {
         .then((response) => response.body)
             .then((rb) => {
                 const reader = rb.getReader();
-    
+                // Text is streamed here
                 return new ReadableStream({
                     start(controller) {
                         // The following function handles each data chunk
@@ -178,24 +185,28 @@ done true
 Example #2:
 {"error":"model 'qwen:0.5b' not found"}
 */
-export const deleteModel = (modelToDelete) =>  {
+export const deleteModel = async (modelToDelete) =>  {
     console.log("Deleting model: " + modelToDelete);
-    fetch(`${LLAMAURL}delete`,  {
-        "method": "DELETE",
-        "body": JSON.stringify({
-            "model": `${modelToDelete}` 
-        }),
-        "headers":    {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    .then(function(response)    {
-        return response.text()
-    })
-    .then(function(data)    {
-        console.log(data);
-        return data;
-    });
+    try {
+        return fetch(`${LLAMAURL}delete`,  {
+            "method": "DELETE",
+            "body": JSON.stringify({
+                "model": `${modelToDelete}` 
+            }),
+            "headers":    {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(function(response)    {
+            return response.text()
+        })
+        .then(function(data)    {
+            console.log(data);
+            return data;
+        });
+    } catch (error) {
+        console.log("deleteModel error:", error);
+    }
 }
 
 
@@ -216,32 +227,36 @@ Example JSON #1: unloadModel("qwen2.5:0.5b");
 Example JSON #2: unloadModel("notAModel");
 { error: 'model "notAModel" not found, try pulling it first' }
 */
-export const unloadModel = (modelToUnload) =>  {
+export const unloadModel = async (modelToUnload) =>  {
     console.log("Unloading model: " + modelToUnload);
-    fetch(`${LLAMAURL}chat`,    {
-        "method": "POST",
-        "body": JSON.stringify({
-            "model": modelToUnload,
-            "messages": [],
-            "keep_alive": 0
-        }),
-        "headers":    {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    .then(function(response)    {
-        return response.json()
-    })
-    .then(function(data)    {
-        console.log(data);
-        return data;
-    });
+    try {
+        return fetch(`${LLAMAURL}chat`,    {
+            "method": "POST",
+            "body": JSON.stringify({
+                "model": modelToUnload,
+                "messages": [],
+                "keep_alive": 0
+            }),
+            "headers":    {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(function(response)    {
+            return response.json()
+        })
+        .then(function(data)    {
+            console.log(data);
+            return data;
+        });
+    } catch (error) {
+        console.log("unloadModel error:", error);
+    }
 }
 
 // The only way to load the model is to use the "chat" API, but use an empty array for the message 
 // This might not be used because you can pull the model and then chat. You don't need to "load the model" at all.
-export const loadModel = (modelToLoad) =>  {
-    return chatToModel(modelToLoad);
+export const loadModel = async (modelToLoad) =>  {
+    return await chatToModel(modelToLoad);
 }
 
 
@@ -269,89 +284,92 @@ Example JSON #1: chatToModel("qwen:0.5b", "hi", false);
 Example JSON #2: chatToModel("notAModel", "whoops", false);
 { error: 'model "notAModel" not found, try pulling it first' }
 */
-export const chatToModel = (modelToUse, message=[], shouldTextbeStreamed=false) =>    {
-    if(shouldTextbeStreamed)    {
-        // Handles streamed text
-        fetch(`${LLAMAURL}chat`,    {
-            "method": "POST",
-            "body": JSON.stringify({
-                "model": modelToUse,
-                "messages": [
-                    {
+export const chatToModel = async (modelToUse, message=[], shouldTextbeStreamed=false) =>    {
+    console.log("Will text be streamed?: ", shouldTextbeStreamed);
+    return fetch(`${LLAMAURL}chat`,    {
+        "method": "POST",
+        "body": JSON.stringify({
+            "model": modelToUse,
+            "messages": [
+                {
                     "role": "user",
                     "content": `${message}`
-                    }
-                ],
-                "stream": shouldTextbeStreamed
-            }),
-            "headers":    {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        .then((response) => response.body)
-        .then((rb) => {
-            const reader = rb.getReader();
-
-            return new ReadableStream({
-                start(controller) {
-                    // The following function handles each data chunk
-                    function push() {
-                    // "done" is a Boolean and value a "Uint8Array"
-                    reader.read().then(({ done, value }) => {
-                        // If there is no more data to read
-                        if (done) {
-                            console.log("done", done);
-                            controller.close();
-                            return;
-                        }
-                        // Get the data and send it to the browser via the controller
-                        controller.enqueue(value);
-                        // Check chunks by logging to the console
-                        console.log(done, value);
-                        push();
-                    });
                 }
+            ],
+            "stream": false
+        }),
+        "headers":    {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then(function(response)    {
+        return response.json();
+    })
+    .then(function(data)    {
+        console.log(data);
+        return data;
+    });
+    
+    // This is messy :(
+    // if(shouldTextbeStreamed)    {
+    //     // Handles streamed text
+    //     return fetch(`${LLAMAURL}chat`,    {
+    //         "method": "POST",
+    //         "body": JSON.stringify({
+    //             "model": modelToUse,
+    //             "messages": [
+    //                 {
+    //                 "role": "user",
+    //                 "content": `${message || "Say hello"} "`
+    //                 }
+    //             ],
+    //             "stream": shouldTextbeStreamed
+    //         }),
+    //         "headers":    {
+    //             "Content-type": "application/json; charset=UTF-8"
+    //         }
+    //     })
+    //     .then((response) => response.body)
+    //     .then((rb) => {
+    //         const reader = rb.getReader();
 
-                push();
-            },
-            });
-        })
-        .then((stream) =>
-            // Respond with our stream
-            new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
-        )
-        .then((result) => {
-            // Do things with result
-            console.log(result);
-            return result;
-        });
-    }
+    //         return new ReadableStream({
+    //             start(controller) {
+    //                 // The following function handles each data chunk
+    //                 function push() {
+    //                 // "done" is a Boolean and value a "Uint8Array"
+    //                 reader.read().then(({ done, value }) => {
+    //                     // If there is no more data to read
+    //                     if (done) {
+    //                         console.log("done", done);
+    //                         controller.close();
+    //                         return;
+    //                     }
+    //                     // Get the data and send it to the browser via the controller
+    //                     controller.enqueue(value);
+    //                     // Check chunks by logging to the console
+    //                     console.log(done, value);
+    //                     push();
+    //                 });
+    //             }
 
-    else    {
-        fetch(`${LLAMAURL}chat`,    {
-            "method": "POST",
-            "body": JSON.stringify({
-                "model": modelToUse,
-                "messages": [
-                    {
-                    "role": "user",
-                    "content": `${message}`
-                    }
-                ],
-                "stream": shouldTextbeStreamed
-            }),
-            "headers":    {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        .then(function(response)    {
-            return response.json();
-        })
-        .then(function(data)    {
-            console.log(data);
-            return data;
-        });
-    }
+    //             push();
+    //         },
+    //         });
+    //     })
+    //     .then((stream) =>
+    //         // Respond with our stream
+    //         new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
+    //     )
+    //     .then((result) => {
+    //         // Do things with result
+    //         console.log(result);
+    //         return result;
+    //     });
+    // }
+
+    // else    {
+    // }
 }
 
 

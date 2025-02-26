@@ -30,13 +30,6 @@ services:
     # Port to expose on the machine : port to expose in the container
     ports:
      - 11434:11434
-    # Check to see if the container is running 
-    healthcheck:
-      test: ["CMD-SHELL", "curl -s http://10.0.60.4:11434/api/tags | jq -e \".models[] | select(.name == \\\"${MODEL:-mistral:latest}\\\")\" > /dev/null"]
-      interval: 10s
-      timeout: 5s
-      retries: 50
-      start_period: 600s
     # If we need to limit the AI model, we can use this
     deploy:
       resources:
