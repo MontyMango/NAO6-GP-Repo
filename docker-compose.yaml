@@ -1,11 +1,15 @@
 # Docker-compose help comes from: ai/chat-demo:latest
 
 services:
-  # nodejs:
-  #   build: .
-  #   container_name: nodejs
-  #   ports:
-  #     - "8080:8080"
+  speech-recognition:
+    container_name: speech-recognition-server
+    build: "./SpeechRecognition-Server/"
+    restart: always
+    ports:
+      - "45689:45689"
+    networks:
+      backend:
+        ipv4_address: 10.0.60.4
 
   api-server:
     container_name: api-server

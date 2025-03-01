@@ -15,7 +15,9 @@ import  {
     getDownloadedModels
 } from './Ollama/Ollama-API.js';
 
-import express, { response } from 'express';
+import express from 'express';
+import multer from 'multer';
+import os from 'node:os';
 
 // Things that can be changed without destroying anything!!!
 const port = 45679;
@@ -28,14 +30,17 @@ app.listen().setTimeout(15000);
 
 // CHAT WITH THE AI
 // Expected Request Format: { model: 'modelName', message: 'message', streamedText: True/False }
-app.post('/chat', async (req, res) =>  {
+app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     const jsonData = req.body;
+    const audioFile = req.file;
     console.log(jsonData);
+    console.log(audioFile);
+    console.log(`Saved file in ` + os.tmpdir());
 
     // Check if data is complete (TODO: FIX THIS, IT'S NOT WORKING)
     var isRequestIncomplete = false;
     var incompleteRequestJSON = {};
-    if(jsonData.model == "")  {
+    if(!jsonData.model)  {
         incompleteRequestJSON.model = "model needs to be filled when chatting with the robot!"
         isRequestIncomplete = true;
     }
@@ -47,7 +52,7 @@ app.post('/chat', async (req, res) =>  {
     }
 
     // If everything checks out, send a response to the AI server
-    if(isRequestIncomplete == false)    {
+    if(isRequestIncomplete == true)    {
         const response = await chatToModel(jsonData.model, jsonData.message, Boolean(jsonData.streamedText));
         try {
             return res.send(response);
