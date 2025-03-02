@@ -1,6 +1,7 @@
 // Links to what helped here:
 //
 // Making async functions (To return json data successfully): https://zellwk.com/blog/async-await-express/
+// Using Multer to upload files: https://expressjs.com/en/resources/middleware/multer.html
 
 // TO RUN THIS FILE DO: npm run start
 // Import the API
@@ -21,21 +22,40 @@ import os from 'node:os';
 
 // Things that can be changed without destroying anything!!!
 const port = 45679;
-
-
-// Tell express.js to expect JSON requests.
+const TRANSCRIPTION_SERVER = "http://10.0.60.4:45689/"
 const app = express();
-app.use(express.json());
-app.listen().setTimeout(15000);
+app.use(express.json());                        // Tell express.js to expect JSON requests.
+app.listen().setTimeout(15000);                 // Set the timeout to 15 seconds.
+const upload = multer({ dest: os.tmpdir() });   // Upload the audio files to a temporary directory.
 
 // CHAT WITH THE AI
 // Expected Request Format: { model: 'modelName', message: 'message', streamedText: True/False }
 app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     const jsonData = req.body;
     const audioFile = req.file;
+    
     console.log(jsonData);
     console.log(audioFile);
     console.log(`Saved file in ` + os.tmpdir());
+
+    // Send the audio file to be transcribed to the speech-recognition-server
+    // https://stackoverflow.com/questions/36067767/how-do-i-upload-a-file-with-the-js-fetch-api
+    const transcribedAudio = fetch(TRANSCRIPTION_SERVER, {
+            method: "POST",
+            // headers:    { },
+            body: audioFile
+        })
+        .then(function(response)    {
+            return response.json() // if the response is a JSON object
+        }
+        ).then(function(data)   {
+            console.log(data);
+            return data; // Handle the success response object
+        }
+        ).catch(
+            error => console.log(error) // Handle the error response object
+        );
+
 
     // Check if data is complete (TODO: FIX THIS, IT'S NOT WORKING)
     var isRequestIncomplete = false;
@@ -53,7 +73,7 @@ app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
 
     // If everything checks out, send a response to the AI server
     if(isRequestIncomplete == true)    {
-        const response = await chatToModel(jsonData.model, jsonData.message, Boolean(jsonData.streamedText));
+        const response = await chatToModel(jsonData.model, transcribedAudio, Boolean(jsonData.streamedText));
         try {
             return res.send(response);
         } catch (error) {
