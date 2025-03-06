@@ -1,3 +1,45 @@
-\section{Restrictions and Limitations}
+\section{Restrictions, Limitations, and Concerns}
 
-TODO: Create section.
+Currently, there are six major concerns with the design or
+implementation of the project. These are as follows: security, lack of
+multi-purpose functionality, lack of interactive features, lack of a web
+app interface, lack of stability over dynamic IP, and lack of edge case
+testing.
+
+In terms of security, there are a few key security issues. The Node.js
+and Ollama servers both use plain text HTTP. This should be rectified by
+upgrading to HTTPS. These servers are also open to the public while
+running. They are only run briefly and the port numbers are randomized.
+However, this is a major avenue for a Denial of Service (DoS) attack.
+This should be rectified by requiring authentication. The version of
+Docker currently in use is version 18. The latest version is 28, and the
+current version on the latest Ubuntu LTS is version 26. This means that
+Docker is approximately 10 versions old. This should be rectified by
+updating the operating system on the \code{cs03} SSH server and
+upgrading the Docker installation. There are currently no known
+vulnerabilities with the \naosix\ robot, as it is password protected and
+its software has been updated with the manufacturer. These
+vulnerabilities must be fixed before any production release.
+
+Another concern is that the project is single-purpose. This is
+understandable, as it is only a proof of concept. However, it only
+speaks when spoken to, and it does not currently have a memory of
+previous interactions.
+
+The project also lacks interactivity and a web app component. Such a web
+app would inform the user of the capabilities of the \naosix\ robot,
+allow the user to customize the personality, set topics of discussion,
+and configure the LLM backend.
+
+One development concern is that the robot is flaky over Wi-Fi. This can
+be broken down into two smaller concerns. The first is that SSH
+disconnects when the DHCP lease is renewed. This can be fixed by
+installing mosh. The second concern is that the Wi-Fi receiver on the
+\naosix\ robot is slow and frequently drops packets. This is ultimately
+unsolvable, and must be worked around by limiting the rate and amount of
+packets sent.
+
+The final concern with the project is that very limited edge case
+testing has been performed. This is once again due to the fact that the
+project is in the proof of concept stage. However, the project is very
+brittle as a result.
