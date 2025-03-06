@@ -1,9 +1,26 @@
 \section{Conclusion}
 
-This project marks a solid advancement in integrating AI-powered Large Language Models (LLMs) with the NAO6 humanoid robot for interactive conversations. By utilizing Docker containers, Node.js middleware, and external APIs like Google’s Speech-to-Text and Ollama LLMs, the system ensures modularity, scalability, and improved speech recognition. The dedicated speech recognition module and external APIs overcome the limitations of the NAO6’s built-in capabilities, providing more reliable voice interactions.
+This project marks a solid advancement in integrating AI-powered Large
+Language Models (LLMs) with the \naosix\ humanoid robot for interactive
+conversations. By utilizing Docker containers, Node.js middleware, and
+external APIs like Google's Speech-to-Text and Ollama LLMs, the system
+ensures modularity, scalability, and improved speech recognition. The
+dedicated speech recognition module and external APIs overcome the
+limitations of the \naosix{}'s built-in capabilities, providing more
+reliable voice interactions.
 
-The backend infrastructure on IU South Bend’s servers lays the foundation for future improvements such as encrypted communication, customizable chatbot personalities, and switching between LLMs. The planned web interface will enhance usability for both users and researchers.
+The backend infrastructure on IU South Bend's servers lays the
+foundation for future improvements such as encrypted communication,
+customizable chatbot personalities, and switching between LLMs. The
+planned web interface will enhance usability for both users and
+researchers.
 
-However, challenges like security vulnerabilities, limited interactivity, and Wi-Fi stability remain. Addressing these, such as upgrading to HTTPS and adding memory for past interactions, will be crucial for a production-ready release.
+However, challenges like security vulnerabilities, limited
+interactivity, and Wi-Fi stability remain. Addressing these, such as
+upgrading to HTTPS and adding memory for past interactions, will be
+crucial for a production-ready release.
 
-In conclusion, this project demonstrates the potential of combining AI with robotics for innovative human-robot interactions, paving the way for future advancements in educational, research, and general-purpose applications.
+In conclusion, this project demonstrates the potential of combining AI
+with robotics for innovative human-robot interactions, paving the way
+for future advancements in educational, research, and general-purpose
+applications.
