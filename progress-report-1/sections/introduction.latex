@@ -12,7 +12,7 @@ Ollama LLMs, and Google's speech recognition libraries. This approach
 has been chosen to ensure modularity, scalability, and ease of
 deployment.
 
-A key aspect of the project is enhancing the \naosix's speech
+A key aspect of the project is enhancing the \naosix{}'s speech
 recognition capabilities. Since the built-in speech recognition of the
 NAO6 robot has been found to be unreliable, an external speech-to-text
 module is being integrated using Python and Google's Speech-to-Text API.

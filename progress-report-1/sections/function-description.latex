@@ -46,7 +46,7 @@ ensuring efficient voice capture.
 To enhance the accuracy of voice recognition, a dedicated speech
 recognition module is implemented within a Docker container. This module
 utilizes Google's Speech-to-Text API to transcribe recorded audio,
-superseding the \naosix's inferior built-in capabilities. The
+superseding the \naosix{}'s inferior built-in capabilities. The
 transcribed text is then forwarded to the AI processing unit.
 
 \subsubsection{AI-Powered Response Generation}
@@ -74,8 +74,8 @@ recording file transfers.
 
 A planned web-based interface will provide administrators and
 researchers with tools to manage chatbot personalities and control
-\naoix's functionalities. This interface will allow users to configure
-conversation styles, select AI models, and oversee basic robot
+\naosix{}'s functionalities. This interface will allow users to
+configure conversation styles, select AI models, and oversee basic robot
 operations.
 
 \subsubsection{Future Enhancements}
