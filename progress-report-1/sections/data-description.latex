@@ -1,3 +1,19 @@
-\section{Data Description}
+\section{Backend Description}
 
-TODO: Create data description.
+\subsection{Hardware and Network Infrastructure Description}
+
+A framework is being developed to facilitate the integration of AI Large Language Models (LLMs) with the NAO6 Robot, utilizing the IU South Bend Computer Science Linux servers. Early in the project, it was determined that Docker containers would be the most effective method for provisioning full-stack JavaScript development and APIs for Ollama LLMs and Google's voice recognition libraries. To date, the only software addition required on the Computer Science servers has been Docker, which includes Node.js, React.js, Ollama, and a voice recognition suite.
+
+Due to operating system limitations imposed by Oracle Linux 7.9, which is restricted to Docker v18, it is not possible to leverage the complete suite of Docker functionality. The current development of the Computer Science Web Server will run RHEL 9, which supports Docker v28+. Several ephemeral network ports on the cs03.cs.iusb.edu SSH server have been opened to allow plain-text communication with the NAO6 robot.
+
+Future development plans involve enabling encrypted network communications between secure ports on the NAO6 robot and the AI server. Additionally, a Computer Science web page will be built to provide a browser-based user interface (UI) for managing NAO6 personality modules, AI LLMs, and possibly basic controls for NAO6 movements. The Docker installation will be required on the Computer Science web server to support this functionality.
+
+\subsection{Software Description}
+
+The backend implementation is aligned with the initial proposal, with some adjustments based on testing results. After discovering that the speech recognition capabilities of the NAO6 robot were unreliable, it was decided to add a dedicated speech recognition module to the API. This module processes the audio captured by the robot and returns a transcription. To implement this, the Python library \texttt{SpeechRecognition} is being used, which integrates Google’s Speech-to-Text API to transcribe what the user says to the robot.
+
+For hosting purposes, a Python REST API Docker container will be created to make this speech recognition module available internally to the Node.js Middleware API. All modules within Docker will have an internal network, ensuring communication between services without exposing them to the internet, thereby reducing security risks.
+
+The remainder of the backend development focuses on the Node.js Middleware, which uses \texttt{Express.js} to handle API calls from the NAO6 robot. To date, API calls to the Ollama server (for large language model processing) have been implemented. Work is ongoing to implement the necessary API calls for the speech recognition server. Additionally, file handling for Node.js is being developed to allow the robot to send audio files to the middleware, which will then forward them to the speech recognition server for transcription.
+
+During testing, an issue was encountered with the IUSB SSH servers, where the software was too outdated to support newer Docker versions. The older Docker version lacked critical commands such as \texttt{docker buildx} to build containers and \texttt{docker compose up -d} to pull and run containers using settings specified in the \texttt{docker-compose.yaml} file. To resolve this, the System Administrator of the IUSB Computer Science Department is working on installing the latest version of Red Hat Enterprise Linux (RHEL) on another server. The new server will replace \texttt{cs03.cs.iusb.edu}, allowing for the use and deployment of the system on-premises.
