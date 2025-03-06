@@ -64,6 +64,8 @@ lkruczek@iu.edu}
 }
 
 \maketitle
+\thispagestyle{plain}
+\pagestyle{plain}
 
 \input{sections/abstract-and-keywords.latex}
 
