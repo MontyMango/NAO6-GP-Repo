@@ -1,3 +1,12 @@
 \section{Software Interface Description}
 
-TODO: Create section.
+The user interface for this application is the \naosix\ humanoid robot.
+The robot listens for a predefined keyword to activate the application.
+Once the application is launched, it processes voice commands from the
+user. With its built-in microphone and the \code{ALSoundDetection} API,
+the robot determines when to start and stop recording the user's voice.
+The application's backend will transcribe the user's input audio and
+generates a response. The response is delivered through the robot's
+speaker and accompanied by animations. User interactions and controls
+are primarily managed through voice commands, with touch input also
+available.
