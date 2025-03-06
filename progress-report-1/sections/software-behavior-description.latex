@@ -1,3 +1,44 @@
 \section{Software Behavior Description}
 
-TODO: Create section.
+\subsection{Software Behavior Summary}
+
+The software interacts with the user through the microphone, sensors,
+and camera of the \naosix\ robot. When the user begins speaking, the
+\code{ALSoundDetection} API activates the microphone and begins
+recording. The recording continues until two seconds of silence are
+detected. The recording is then stored locally and transmitted to the
+backend server via HTTP.
+
+The backend server, running as a Node.js container, forwards the
+recording to a voice recognition Docker container. The voice recognition
+container returns a transcription of the voice recording back to the
+Node.js container. The Node.js container then passes the transcription
+to Ollama for response generation. Ollama processes the input and
+generates a response using one of the Large Language Models (LLMs) that
+it supports. The response is then sent back to the Node.js container.
+The server then transmits the response to the \naosix\ robot, which
+delivers a performance of the AI-generated response through speech and
+animations.
+
+If communication with the server fails or a non-200 status code is
+received, due to voice recognition errors or connection issues, an error
+message is generated and read aloud by the robot.
+
+\subsection{Future Enhancements}
+
+In later development phases, additional features will be implemented to
+enhance user interaction. These include the following.
+
+\begin{itemize}
+  \item
+    A web-based interface for interacting with the chatbot, expanding
+    the interface beyond the robot.
+
+  \item
+    The ability to switch between different LLMs to customize chatbot
+    responses.
+
+  \item
+    User-defined topics, such as daily conversations, math assistance,
+    and more, for tailored interactions.
+\end{itemize}
