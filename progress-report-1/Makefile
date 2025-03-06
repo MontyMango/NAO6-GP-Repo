@@ -1,5 +1,6 @@
 sections := abstract-and-keywords.latex introduction.latex
 sections += function-description.latex data-description.latex
+sections += software-interface-description.latex
 sections += software-behavior-description.latex
 sections += restrictions-and-limitations.latex appendices.latex
 sections += conclusion.latex acknowledgment.latex bibliography.latex

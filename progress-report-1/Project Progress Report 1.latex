@@ -75,6 +75,8 @@ lkruczek@iu.edu}
 
 \input{sections/data-description.latex}
 
+\input{sections/software-interface-description.latex}
+
 \input{sections/software-behavior-description.latex}
 
 \input{sections/restrictions-and-limitations.latex}
