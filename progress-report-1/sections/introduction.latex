@@ -1,3 +1,11 @@
 \section{Introduction}
 
-TODO: Create introduction.
+This project is focused on integrating AI-powered Large Language Models (LLMs) with the NAO6 humanoid robot to enable interactive and engaging conversations. A framework is being developed to facilitate seamless communication between the NAO6 robot and AI-driven services using IU South Bend’s Computer Science Linux servers.
+
+To achieve this, a backend infrastructure is being implemented using Docker containers to manage full-stack JavaScript development, APIs for Ollama LLMs, and Google's speech recognition libraries. This approach has been chosen to ensure modularity, scalability, and ease of deployment. 
+
+A key aspect of the project is enhancing the NAO6’s speech recognition capabilities. Since the built-in speech recognition of the NAO6 robot has been found to be unreliable, an external speech-to-text module is being integrated using Python and Google’s Speech-to-Text API. This module will be deployed as a dedicated Docker container and will communicate securely within the backend network.
+
+Beyond voice interaction, additional functionality is planned, including a browser-based interface for managing AI models and robot controls. Future improvements will include encrypted communication, customizable chatbot personalities, and the ability to switch between different LLMs for tailored interactions.
+
+In this document, the system’s core functionalities, backend architecture, software interfaces, and expected behavior are outlined to provide a comprehensive overview of the development process and planned enhancements.
