@@ -25,6 +25,7 @@
 \makeatother
 
 \newcommand{\naosix}{\textrm{NAO\textsuperscript{6}}}
+\newcommand{\code}[1]{\texttt{#1}}
 
 \begin{document}
 
