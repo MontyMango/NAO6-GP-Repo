@@ -1,3 +1,12 @@
+\begin{abstract}
+  This project aims to develop an interactive and educational chatbot
+  application for the \naosix\ humanoid robot, enhancing its
+  capabilities through Large Language Model (LLM) integration. Hosted by
+  the Computer Science Department at Indiana University South Bend, the
+  \naosix\ robot will leverage advanced AI to engage users in meaningful
+  conversations while performing interactive animations.
+\end{abstract}
+
 \begin{IEEEkeywords}
   \naosix, NAO6, humanoid robot, LLM, Ollama, Docker.
 \end{IEEEkeywords}

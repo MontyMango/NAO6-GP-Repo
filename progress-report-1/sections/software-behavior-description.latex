@@ -42,3 +42,14 @@ enhance user interaction. These include the following.
     User-defined topics, such as daily conversations, math assistance,
     and more, for tailored interactions.
 \end{itemize}
+
+The interaction with the software currently only involves one user. That
+is the user directly interacting with the \naosix\ robot. This is
+illustrated in Fig. \ref{fig:user_diagram} below.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.3\textwidth]{user-diagram}
+  \caption{User diagram.}
+  \label{fig:user_diagram}
+\end{figure}

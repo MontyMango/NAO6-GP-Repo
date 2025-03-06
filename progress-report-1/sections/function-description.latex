@@ -30,9 +30,24 @@ distinct interactions listed below.
 
 \subsection{Core Functionalities}
 
+Important to understanding the core functionality of the project is the
+speech-response loop. In the successful case, the system detects sound
+and begins recording input. Once silence is detected, it sends the
+speech input for processing. After the speech is transcribed, an LLM
+response is generated, and the LLM response is performed by the \naosix\
+robot. The entire speech-response loop is illustrated in Fig.
+\ref{fig:speech_response_loop} below.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{speech-response-loop}
+  \caption{Speech-response loop diagram.}
+  \label{fig:speech_response_loop}
+\end{figure}
+
 The system provides the following core functionalities:
 
-\subsubsection{Voice Interaction with NAO6}
+\subsubsection{Voice Interaction with \naosix}
 
 Users initiate communication currently with by running a python script,
 activating the \naosix\ robot's listening mode. Eventually, users will
@@ -66,7 +81,7 @@ interactivity.
 \subsubsection{Middleware API for Communication}
 
 A middleware API, developed using Node.js and Express.js, facilitates
-communication between the NAO6 robot and backend services. This API
+communication between the \naosix\ robot and backend services. This API
 manages API calls, routes transcribed text to the LLM, and handles voice
 recording file transfers.
 

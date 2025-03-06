@@ -6,6 +6,10 @@ sections += restrictions-and-limitations.latex appendices.latex
 sections += conclusion.latex acknowledgment.latex bibliography.latex
 sections := $(sections:%=sections/%)
 
+images := images/architecture-diagram.png
+images += images/speech-response-loop.png
+images += images/user-diagram.png
+
 rep_name := Project\ Progress\ Report\ 1
 
 $(rep_name).pdf: $(rep_name).latex IEEEtran.cls $(sections) $(images)

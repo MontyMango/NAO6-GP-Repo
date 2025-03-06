@@ -28,6 +28,19 @@ Science web server to support this functionality.
 
 \subsection{Software Description}
 
+The broad overview of the architecture is that the \naosix\ robot
+contacts a Node.js server hosted on the \code{cs03} SSH server. This
+Node.js server then contacts the Ollama server to provide a response
+back to the \naosix\ robot. A diagram is provided below in Fig.
+\ref{fig:systematic_drawing}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{architecture-diagram}
+  \caption{System architecture diagram.}
+  \label{fig:systematic_drawing}
+\end{figure}
+
 The backend implementation is aligned with the initial proposal, with
 some adjustments based on testing results. After discovering that the
 speech recognition capabilities of the \naosix\ robot were unreliable,
