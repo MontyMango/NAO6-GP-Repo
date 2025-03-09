@@ -3,7 +3,7 @@
 services:
   speech-recognition:
     container_name: speech-recognition-server
-    build: "./SpeechRecognition-Server/"
+    build: "./speech-recognition-api/"
     restart: always
     ports:
       - "45689:45689"

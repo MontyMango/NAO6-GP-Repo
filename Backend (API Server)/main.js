@@ -22,14 +22,14 @@ import os from 'node:os';
 
 // Things that can be changed without destroying anything!!!
 const port = 45679;
-const TRANSCRIPTION_SERVER = "http://10.0.60.4:45689/"
+const TRANSCRIPTION_SERVER = "http://10.0.60.4:45689/transcribe"
 const app = express();
 app.use(express.json());                        // Tell express.js to expect JSON requests.
 app.listen().setTimeout(15000);                 // Set the timeout to 15 seconds.
 const upload = multer({ dest: os.tmpdir() });   // Upload the audio files to a temporary directory.
 
 // CHAT WITH THE AI
-// Expected Request Format: { model: 'modelName', message: 'message', streamedText: True/False }
+// Expected Request Format: { model: 'modelName', audioFile: file.ogg, streamedText: True/False }
 app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     const jsonData = req.body;
     const audioFile = req.file;
@@ -40,13 +40,19 @@ app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
 
     // Send the audio file to be transcribed to the speech-recognition-server
     // https://stackoverflow.com/questions/36067767/how-do-i-upload-a-file-with-the-js-fetch-api
+    // https://flaviocopes.com/how-to-upload-files-fetch/
+
+
+    const formData = new FormData();
+    formData.append('file', audioFile);
+    console.log(formData);
+
     const transcribedAudio = fetch(TRANSCRIPTION_SERVER, {
             method: "POST",
-            // headers:    { },
-            body: audioFile
+            body: formData
         })
         .then(function(response)    {
-            return response.json() // if the response is a JSON object
+            return response // if the response is a JSON object
         }
         ).then(function(data)   {
             console.log(data);
@@ -54,18 +60,13 @@ app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
         }
         ).catch(
             error => console.log(error) // Handle the error response object
-        );
+    );
 
-
-    // Check if data is complete (TODO: FIX THIS, IT'S NOT WORKING)
     var isRequestIncomplete = false;
     var incompleteRequestJSON = {};
     if(!jsonData.model)  {
         incompleteRequestJSON.model = "model needs to be filled when chatting with the robot!"
         isRequestIncomplete = true;
-    }
-    if(jsonData.message == "")   {
-        console.log("Note: message is not filled out, defaulting to hello");
     }
     if(jsonData.streamedText == "")  {
         console.log("Note: Defaulting streamed text to false")
