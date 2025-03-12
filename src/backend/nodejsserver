@@ -99,9 +99,11 @@ def process_audio() -> flask.Response:
     prompt.write(transcribed_text)
     prompt.seek(0)
 
-    # Send transcribed text to Ollama
+    # Send transcribed text to Ollama.
+    # Possible models are llama3.2, deepseek-r1:7b, qwen2.5:0.5b, and
+    # gemma.
     data = {
-        "model": "qwen2.5:0.5b",
+        "model": "llama3.2",
         "prompt": prompt.read(),
         "stream": False,
         }
