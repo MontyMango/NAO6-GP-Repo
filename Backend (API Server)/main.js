@@ -47,10 +47,16 @@ app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     formData.append('file', audioFile);
     console.log(formData);
 
-    const transcribedAudio = fetch(TRANSCRIPTION_SERVER, {
-            method: "POST",
-            body: formData
-        })
+    const options = {
+        method: 'POST',
+        header: {
+            'Content-Type': 'multipart/form-data; boundary=---011000010111000001101001',
+        }
+    }
+
+    options.body = formData;
+
+    const transcribedAudio = fetch(TRANSCRIPTION_SERVER, options)
         .then(function(response)    {
             return response // if the response is a JSON object
         }
