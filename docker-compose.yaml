@@ -1,7 +1,7 @@
 # Docker-compose help comes from: ai/chat-demo:latest
 
 services:
-  speech-recognition:
+  api-server:
     container_name: speech-recognition-server
     build: "./speech-recognition-api/"
     restart: always
@@ -9,17 +9,17 @@ services:
       - "45689:45689"
     networks:
       backend:
-        ipv4_address: 10.0.60.4
-
-  api-server:
-    container_name: api-server
-    build: "./Backend (API Server)/"
-    restart: always
-    ports:
-      - "45679:45679"
-    networks:
-      backend:
         ipv4_address: 10.0.60.3
+
+  # api-server:
+  #   container_name: api-server
+  #   build: "./Backend (API Server)/"
+  #   restart: always
+  #   ports:
+  #     - "45679:45679"
+  #   networks:
+  #     backend:
+  #       ipv4_address: 10.0.60.3
   # This makes the ollama container wait infinitely
   #   depends_on:
   #     ollama:

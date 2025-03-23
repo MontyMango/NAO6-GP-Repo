@@ -2,3 +2,4 @@ Flask
 werkzeug
 SpeechRecognition
 gunicorn
+requests
