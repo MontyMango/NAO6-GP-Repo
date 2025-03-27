@@ -19,6 +19,7 @@ import  {
 import express from 'express';
 import multer from 'multer';
 import os from 'node:os';
+import fs from 'fs';
 
 // Things that can be changed without destroying anything!!!
 const port = 45679;
@@ -29,7 +30,7 @@ app.listen().setTimeout(15000);                 // Set the timeout to 15 seconds
 const upload = multer({ dest: os.tmpdir() });   // Upload the audio files to a temporary directory.
 
 // CHAT WITH THE AI
-// Expected Request Format: { model: 'modelName', audioFile: file.ogg, streamedText: True/False }
+// Expected Request Format: { model: 'modelName', audioFile: file.ogg or file.wav, streamedText: True/False }
 app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     const jsonData = req.body;
     const audioFile = req.file;
@@ -38,52 +39,29 @@ app.post('/chat', upload.single('audioFile'), async (req, res) =>  {
     console.log(audioFile);
     console.log(`Saved file in ` + os.tmpdir());
 
-    // Send the audio file to be transcribed to the speech-recognition-server
-    // https://stackoverflow.com/questions/36067767/how-do-i-upload-a-file-with-the-js-fetch-api
-    // https://flaviocopes.com/how-to-upload-files-fetch/
+    // Ensure the file is correctly appended to the FormData object
+    const form = new FormData();
+    const audioFileBlob = audioFile.blob();
 
+    form.append("file", fs.createReadStream(audioFile.path), `${audioFile.filename}`);
+    console.log(form);
 
-    const formData = new FormData();
-    formData.append('file', audioFile);
-    console.log(formData);
-
-    const transcribedAudio = fetch(TRANSCRIPTION_SERVER, {
-            method: "POST",
-            body: formData
-        })
-        .then(function(response)    {
-            return response // if the response is a JSON object
+    const options = {
+        method: 'POST',
+        body: form,
+        headers: {
+            'Context-Type': 'multipart/form-data'
         }
-        ).then(function(data)   {
-            console.log(data);
-            return data; // Handle the success response object
-        }
-        ).catch(
-            error => console.log(error) // Handle the error response object
-    );
+    };
 
-    var isRequestIncomplete = false;
-    var incompleteRequestJSON = {};
-    if(!jsonData.model)  {
-        incompleteRequestJSON.model = "model needs to be filled when chatting with the robot!"
-        isRequestIncomplete = true;
-    }
-    if(jsonData.streamedText == "")  {
-        console.log("Note: Defaulting streamed text to false")
-    }
-
-    // If everything checks out, send a response to the AI server
-    if(isRequestIncomplete == true)    {
-        const response = await chatToModel(jsonData.model, transcribedAudio, Boolean(jsonData.streamedText));
-        try {
-            return res.send(response);
-        } catch (error) {
-            console.log('/chat error', error);
-            return res.status(400).send("Error has occured in /chat");
-        }
-    }
-    else    {
-        return res.send(incompleteRequestJSON);
+    try {
+        const response = await fetch(TRANSCRIPTION_SERVER, options);
+        const data = await response.json();
+        console.log(data);
+        return res.send(data); // Handle the success response object
+    } catch (error) {
+        console.log(error); // Handle the error response object
+        return res.status(500).send("Error occurred while transcribing audio");
     }
 });
 

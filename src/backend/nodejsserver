@@ -11,7 +11,7 @@ import speech_recognition as sr
 
 app = Flask(__name__)
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = "http://localhost:41579/api/generate"
 
 def warn(warning_text: str) -> None:
     print(warning_text, file=sys.stderr)
@@ -27,16 +27,6 @@ def transcribe_audio(audio_path: str) -> str:
                                                       pfilter=0,
                                                       show_all=True)
 
-        if len(server_response) == 0:
-            # The user probably didn't say anything.
-            warn("Google Speech Recognition returned an empty list.")
-
-            response_to_llm = io.StringIO("You are not able ")
-            response_to_llm.write("to hear the user. ")
-            response_to_llm.write("You should probably apologize, ")
-            response_to_llm.write("and you should definitely ")
-            response_to_llm.write("ask them to speak up.")
-
         # The transcription succeeded.
         confidence_is_key = lambda response: response['confidence']
         # TODO: Check server_response['final'].
@@ -44,6 +34,17 @@ def transcribe_audio(audio_path: str) -> str:
         most_confident_response = max(responses, key=confidence_is_key)
         best_transcript = most_confident_response['transcript']
         response_to_llm = io.StringIO(best_transcript)
+
+    except TypeError:
+        assert len(server_response) == 0
+        # The user probably didn't say anything.
+        warn("Google Speech Recognition returned an empty list.")
+
+        response_to_llm = io.StringIO("You are not able ")
+        response_to_llm.write("to hear the user. ")
+        response_to_llm.write("You should probably apologize, ")
+        response_to_llm.write("and you should definitely ")
+        response_to_llm.write("ask them to speak up.")
 
     except sr.UnknownValueError:
         # The transcription failed.
@@ -98,9 +99,11 @@ def process_audio() -> flask.Response:
     prompt.write(transcribed_text)
     prompt.seek(0)
 
-    # Send transcribed text to Ollama
+    # Send transcribed text to Ollama.
+    # Possible models are llama3.2, deepseek-r1:7b, qwen2.5:0.5b, and
+    # gemma.
     data = {
-        "model": "qwen2.5:0.5b",
+        "model": "llama3.2",
         "prompt": prompt.read(),
         "stream": False,
         }
