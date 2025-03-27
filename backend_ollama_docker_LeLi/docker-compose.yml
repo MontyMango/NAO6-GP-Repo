@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "45689:45689"
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - API_KEY=dbzgt123
+    volumes:
+      - /etc/docker/certs.d/cs03Certs/cs03Pub.crt:/app/server.crt:Z
+      - /etc/docker/certs.d/cs03Certs/cs03Prv.key:/app/server.key:Z
+    networks:
+      - app_network
+
+  ollama:
+    build:
+      context: ./ollama-docker
+      dockerfile: Dockerfile
+    #ports:
+    #  - "11434"
+    networks:
+      - app_network
+    volumes:
+      - ollama_models:/root/.ollama/models
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    #runtime: nvidia
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  ollama_models:
+    driver: local
+
