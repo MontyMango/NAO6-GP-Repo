@@ -1,10 +1,11 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, Response
 from werkzeug.utils import secure_filename
 from app.utils import allowed_file, transcribe_audio
 import requests
 
 api = Blueprint('api', __name__)
 OLLAMA_URL = "http://10.0.60.2:11434/api"
+DATABASE_URL = "http://10.0.61.2:3306/"
 
 # https://stackabuse.com/step-by-step-guide-to-file-upload-with-flask/
 @api.route('/transcribe', methods=['POST'])
@@ -39,12 +40,12 @@ def get_running_models():
 
 # JSON Format:
 # { model: 'modelName' }
-# TODO: We need to make the JSON streamable here.
 @api.route('/download', methods=['POST'])
 def download_model():
     data = request.json
-    response = requests.post(f"{OLLAMA_URL}/pull", json=data)
-    return jsonify(jsonify(response).json())
+    # Python streamed response: https://stackoverflow.com/questions/39272072/flask-send-stream-as-response#39274008
+    response = requests.post(f"{OLLAMA_URL}/pull", json=data, stream=True)
+    return Response(response.iter_content(chunk_size=10*1024))
 
 # JSON FORMAT:
 # { model }
@@ -54,7 +55,9 @@ def chat():
     # 1. Process audio first and transcribe the audio
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
-    transcription = transcribe_audio()
+
+    file = request.files['file']
+    transcription = transcribe_audio(file)
 
     # 2. Build the JSON request
     data = request.json

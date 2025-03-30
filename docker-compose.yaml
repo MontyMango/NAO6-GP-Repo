@@ -10,21 +10,8 @@ services:
     networks:
       backend:
         ipv4_address: 10.0.60.3
-
-  # api-server:
-  #   container_name: api-server
-  #   build: "./Backend (API Server)/"
-  #   restart: always
-  #   ports:
-  #     - "45679:45679"
-  #   networks:
-  #     backend:
-  #       ipv4_address: 10.0.60.3
-  # This makes the ollama container wait infinitely
-  #   depends_on:
-  #     ollama:
-  #       condition: service_healthy
-
+      database:
+        ipv4_address: 10.0.61.3
 
   ollama:
     container_name: ollama
@@ -48,9 +35,28 @@ services:
       backend:
         ipv4_address: 10.0.60.2
 
+  database-server:
+    container_name: mysql-database
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: veryverysecretpassword
+      MYSQL_DATABASE: nao6-db
+      MYSQL_USER: username
+      MYSQL_PASSWORD: themostsecretpassword
+    ports:
+    - "3306:3306"
+    volumes:
+    - db_data:/var/lib/mysql
+    restart: always
+    networks:
+      database:
+        ipv4_address: 10.0.61.2
+
 volumes:
   ollama_data:
     name: ollama_data
+  db_data:
+    name: mysql_data
 
 networks:
   backend:
@@ -58,3 +64,8 @@ networks:
     ipam:
       config:
         - subnet: "10.0.60.0/28"
+  database:
+    driver: bridge
+    ipam:
+      config: 
+        - subnet: "10.0.61.0/28"
