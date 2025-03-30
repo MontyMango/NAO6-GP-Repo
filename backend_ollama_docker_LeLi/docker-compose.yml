@@ -1,4 +1,4 @@
-version: '3.3'
+#version: '3.3'
 
 services:
   backend:
@@ -12,9 +12,9 @@ services:
     environment:
       - OLLAMA_URL=http://ollama:11434
       - API_KEY=dbzgt123
-    volumes:
-      - /etc/docker/certs.d/cs03Certs/cs03Pub.crt:/app/server.crt:Z
-      - /etc/docker/certs.d/cs03Certs/cs03Prv.key:/app/server.key:Z
+    #volumes:
+    #  - /etc/docker/certs.d/cs03Certs/cs03Pub.crt:/app/server.crt:Z
+    #  - /etc/docker/certs.d/cs03Certs/cs03Prv.key:/app/server.key:Z
     networks:
       - app_network
 
@@ -28,8 +28,16 @@ services:
       - app_network
     volumes:
       - ollama_models:/root/.ollama/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     #runtime: nvidia
 
 networks:

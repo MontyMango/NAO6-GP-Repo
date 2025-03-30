@@ -122,7 +122,7 @@ def process_audio() -> flask.Response:
 
         # Send transcribed text to Ollama
         data = {
-            "model": "llama3.2",#llama3.2, deepseek-r1:7b, qwen2.5:0.5b, gemma
+            "model": "deepseek-r1:7b",#llama3.2, deepseek-r1:7b, qwen2.5:0.5b, gemma
             #"model": "qwen2.5:0.5b",#llama3.2, deepseek-r1:7b, qwen2.5:0.5b, gemma
             "prompt": prompt.read(),
             "stream": False,
@@ -142,5 +142,5 @@ def process_audio() -> flask.Response:
 
 if __name__ == "__main__":
     os.makedirs("temp", exist_ok=True)
-    app.run(host="0.0.0.0", port=45689, ssl_context=("/app/server.crt", "/app/server.key"))
-    #app.run(host="0.0.0.0", port=45689)
+    #app.run(host="0.0.0.0", port=45689, ssl_context=("/app/server.crt", "/app/server.key"))
+    app.run(host="0.0.0.0", port=45689)
