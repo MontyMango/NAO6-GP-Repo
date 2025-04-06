@@ -6,6 +6,15 @@ api = Blueprint('api', __name__)
 OLLAMA_URL = "http://10.0.60.2:11434/api"
 DATABASE_URL = "http://10.0.61.2:3306/"
 global_AI_model = "qwen2.5:0.5b"    # Default can be something else
+previous_transcription = ""
+previous_response = ""
+mood = "Netural"
+
+# Use this to do a 
+# moods = {
+#     'Happy': '',
+#     'Netural': '',
+# }
 
 # Procedure for robot
 # 1. Set llm (Optional)
@@ -35,7 +44,7 @@ def transcribe():
     return jsonify({"error": "Invalid file format! Only .ogg and .wav files are allowed."}), 400
 
 
-@api.route('/tags', methods=['GET'])
+@api.route('/downloaded', methods=['GET'])
 def get_models():
     response = requests.get(f"{OLLAMA_URL}/tags")
     return jsonify(response.json()), 200
@@ -65,33 +74,53 @@ def download_model():
 # TODO: We need to see how we can accept audio files through Flask.
 @api.route('/chat', methods=['POST'])
 def chat():
-    # Check if an audio file is included in the request
-    if "file" not in request.files:
-        return jsonify({"error": "No file uploaded"}), 400
-
-    file = request.files['file']
-
-    # Validate and transcribe the audio file
-    if file and allowed_file(file.filename):
-        try:
-            transcription = transcribe_audio(file)
-        except Exception as e:
-            return jsonify({"error": f"Error during transcription: {str(e)}"}), 500
-    else:
-        return jsonify({"error": "Invalid file format! Only .ogg and .wav files are allowed."}), 400
-
-    # Build the JSON request for the chat model
-    data = request.json or {}
-    data["messages"] = [{"role": "user", "content": transcription}]
-    data["model"] = global_AI_model
-
-    # Send the transcription to the chat model
     try:
-        response = requests.post(f"{OLLAMA_URL}/chat", json=data)
-        return jsonify(response.json()), 200
-    except Exception as e:
-        return jsonify({"error": f"Error during chat request: {str(e)}"}), 500
+        # Check if an audio file is included in the request
+        # If there isn't a file in the request, use the text
+        if "file" not in request.files:
+            transcription = request.json.prompt
+        
+        # Use the audio file instead (This take a little longer since we are using Google's transcription service)
+        else:
+            file = request.files['file']
+            # Validate and transcribe the audio file
+            if file and allowed_file(file.filename):
+                try:
+                    transcription = transcribe_audio(file)
 
+                    # Make transcription available when getting the transcription
+                    global previous_transcription
+                    previous_transcription = transcription
+                except Exception as e:
+                    return jsonify({"error": f"Error during transcription: {str(e)}"}), 500
+            else:
+                return jsonify({"error": "Invalid file format! Only .ogg and .wav files are allowed."}), 400
+
+        # Build the JSON request for the chat model
+        data = request.json or {}
+        data["messages"] = [{"role": "user", "content": transcription}]
+        data["model"] = global_AI_model
+
+        # Send the transcription to the chat model
+        try:
+            response = requests.post(f"{OLLAMA_URL}/chat", json=data)
+            
+            global previous_response
+            previous_response = response.json().message.content
+            return jsonify(response.json()), 200
+        except Exception as e:
+            return jsonify({"error": f"Error during chat request: {str(e)}"}), 500
+    except Exception as e:
+        return jsonify({"error": f"{e}"})
+
+
+@api.route('/transcription', methods=['GET'])
+def get_transcription():
+    return jsonify({"transcription": previous_transcription})
+
+@api.route('/response', methods=['GET'])
+def get_response():
+    return jsonify({"transcription": previous_response})
 
 @api.route('/unload', methods=['POST'])
 def unload_model():
