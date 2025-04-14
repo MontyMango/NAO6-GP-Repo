@@ -2,8 +2,8 @@
 
 services:
   api-server:
-    container_name: speech-recognition-server
-    build: "./speech-recognition-api/"
+    container_name: middleware-api-server
+    build: "./Flask-backend/"
     restart: always
     ports:
       - "45689:45689"
@@ -35,28 +35,28 @@ services:
       backend:
         ipv4_address: 10.0.60.2
 
-  database-server:
-    container_name: mysql-database
-    image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: veryverysecretpassword
-      MYSQL_DATABASE: nao6-db
-      MYSQL_USER: username
-      MYSQL_PASSWORD: themostsecretpassword
-    ports:
-    - "3306:3306"
-    volumes:
-    - db_data:/var/lib/mysql
-    restart: always
-    networks:
-      database:
-        ipv4_address: 10.0.61.2
+  # database-server:
+  #   container_name: mysql-database
+  #   image: mysql:latest
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: veryverysecretpassword
+  #     MYSQL_DATABASE: nao6-db
+  #     MYSQL_USER: username
+  #     MYSQL_PASSWORD: themostsecretpassword
+  #   ports:
+  #   - "3306:3306"
+  #   volumes:
+  #   - db_data:/var/lib/mysql
+  #   restart: always
+  #   networks:
+  #     database:
+  #       ipv4_address: 10.0.61.2
 
 volumes:
   ollama_data:
     name: ollama_data
-  db_data:
-    name: mysql_data
+  # db_data:
+  #   name: mysql_data
 
 networks:
   backend:
@@ -64,8 +64,8 @@ networks:
     ipam:
       config:
         - subnet: "10.0.60.0/28"
-  database:
-    driver: bridge
-    ipam:
-      config: 
-        - subnet: "10.0.61.0/28"
+  # database:
+  #   driver: bridge
+  #   ipam:
+  #     config: 
+  #       - subnet: "10.0.61.0/28"
