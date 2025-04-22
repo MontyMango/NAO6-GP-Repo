@@ -3,3 +3,4 @@ werkzeug
 SpeechRecognition
 gunicorn
 requests
+flask-cors

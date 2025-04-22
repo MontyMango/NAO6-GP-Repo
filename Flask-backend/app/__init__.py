@@ -1,9 +1,15 @@
 from flask import Flask
+from flask_cors import CORS
 from app.routes import api
+
 import os
 
 def create_app():
     app = Flask(__name__)
+
+    # This enables CORS for the flask backend server
+    # So we can recieve input from our frontend on all routes.
+    CORS(app)
 
     app.config['UPLOAD_FOLDER'] = "upload/"
 

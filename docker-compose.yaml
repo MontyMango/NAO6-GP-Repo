@@ -1,4 +1,6 @@
 # Docker-compose help comes from: ai/chat-demo:latest
+# We initally planned to do a database to save the user's chat history so the previous chats can be used across all models.
+# We decided against it because of the "time crunch" to get the front-end finished.
 
 services:
   api-server:
@@ -6,12 +8,12 @@ services:
     build: "./Flask-backend/"
     restart: always
     ports:
-      - "45689:45689"
+      - "43016:43016"
     networks:
       backend:
         ipv4_address: 10.0.60.3
     depends_on:
-      - ollamax
+      - ollama
       # database:
       #   ipv4_address: 10.0.61.3
 
@@ -21,24 +23,24 @@ services:
       context: ./ollama-docker
       dockerfile: Dockerfile
     volumes:
-     - '/ollama:/ollama'  # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
+      - '/ollama:/ollama' # You might need to remove the ./ and replace it with you home directory (Docker doesn't like this)
     # Port to expose on the machine : port to expose in the container
     ports:
-     - 11434:11434
+      - 11434:11434
     # If we need to limit the AI model, we can use this
     deploy:
       resources:
         limits:
-          cpus: '4'   # Preferrably 4 for lightweight models, 16 for heavy models
+          cpus: '4' # Preferrably 4 for lightweight models, 16 for heavy models
           memory: 8G
         reservations:
           cpus: '0.25'
-          memory: 2G  # Lightweight models require 2GB's of 
+          memory: 2G # Lightweight models require 2GB's of 
           # Add nvidia graphics capabilities
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu]
+              capabilities: [ gpu ]
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
@@ -46,7 +48,6 @@ services:
     networks:
       backend:
         ipv4_address: 10.0.60.2
-
   # database-server:
   #   container_name: mysql-database
   #   image: mysql:latest
