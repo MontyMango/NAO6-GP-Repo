@@ -3,4 +3,4 @@ from app import create_app
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=45689, debug=False)
+    app.run(host='0.0.0.0', port=43016, debug=False)

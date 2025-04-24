@@ -11,13 +11,13 @@ services:
       - "43016:43016"
     networks:
       backend:
-        ipv4_address: 10.0.60.3
+        ipv4_address: 10.0.68.3
     depends_on:
-      - ollama
+      - ollama-2
       # database:
       #   ipv4_address: 10.0.61.3
 
-  ollama:
+  ollama-2:
     container_name: ollama
     build:
       context: ./ollama-docker
@@ -47,7 +47,7 @@ services:
     restart: always
     networks:
       backend:
-        ipv4_address: 10.0.60.2
+        ipv4_address: 10.0.68.2
   # database-server:
   #   container_name: mysql-database
   #   image: mysql:latest
@@ -76,7 +76,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: "10.0.60.0/28"
+        - subnet: "10.0.68.0/28"
   # database:
   #   driver: bridge
   #   ipam:

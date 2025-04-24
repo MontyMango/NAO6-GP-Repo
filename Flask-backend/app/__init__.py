@@ -11,7 +11,7 @@ def create_app():
     # So we can recieve input from our frontend on all routes.
     CORS(app)
 
-    app.config['UPLOAD_FOLDER'] = "upload/"
+    app.config['UPLOAD_FOLDER'] = "/temp/"
 
     if not os.path.exists(app.config['UPLOAD_FOLDER']):
         os.makedirs(app.config['UPLOAD_FOLDER'])    

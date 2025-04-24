@@ -1,6 +1,6 @@
-def allowed_file(filename):
-    allowed_extensions = {'ogg', 'wav'}
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
+#def allowed_file(filename):
+#    allowed_extensions = {'ogg', 'wav'}
+#    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
 
 def transcribe_audio(audio_file):
     import speech_recognition as sr
