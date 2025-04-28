@@ -48,7 +48,7 @@ def process_audio():
 
     ollama_response = requests.post(OLLAMA_URL, json=data)
         
-    return jsonify({"transcribed_text": transcribed_text, "ollama_response": ollama_response.json()})
+    return jsonify({"transcribed_text": transcribed_text, "ollama_response": ollama_response})
 
     #except Exception as e:
     #    return jsonify({"error": str(e)}), 500
