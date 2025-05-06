@@ -1,9 +1,12 @@
+import os
+import speech_recognition as sr
+import requests
+
 #def allowed_file(filename):
 #    allowed_extensions = {'ogg', 'wav'}
 #    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
 
 def transcribe_audio(audio_file):
-    import speech_recognition as sr
     r = sr.Recognizer()
     
     with sr.AudioFile(audio_file) as source:
@@ -19,8 +22,6 @@ def transcribe_audio(audio_file):
 
 def analyze_sentence_mood(transcription, ollama_url):
     try:
-        import requests
-        import os
         # Chose llama3.2 due to it being quick and efficient at analyzing the sentence.
         # Since we are analyzing a sentence for it's mood, its response doesn't need to be accurate.
         data = {
@@ -53,5 +54,22 @@ def analyze_sentence_mood(transcription, ollama_url):
         print("analyze_sentence_mood error", e, file=os.sys.stderr)
         raise e
 
-def import_sys_prompt():
-    return 
+
+def set_personality(user_choice):
+    base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
+    prompt_path = os.path.join(base_dir, "../system_prompts/IU_Helper.txt")  # Construct the absolute path
+
+    if user_choice == 0:
+        try:
+            with open(prompt_path, "r") as file:
+                system_prompt = file.read()
+        except FileNotFoundError:
+            raise FileNotFoundError(f"File not found: {prompt_path}")
+    else:
+        system_prompt = """You are a chatbot at the Computer Science and Informatics
+            Department at IU South Bend, a humanoid robot to interact and chat with IU
+            South Bend students. Your name is NAO6. You respond in a short,  
+            hippie style in less than 100 words. Never say I am a large     
+            language model."""
+            
+    return system_prompt

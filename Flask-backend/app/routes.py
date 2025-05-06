@@ -1,5 +1,5 @@
-from flask import Blueprint, request, jsonify, Response
-from app.utils import transcribe_audio, analyze_sentence_mood # , allowed_file
+from flask import Blueprint, request, jsonify
+from app.utils import transcribe_audio, analyze_sentence_mood, set_personality
 import requests
 import os
 
@@ -21,11 +21,7 @@ previous_transcription = "Whatever NAO6 thought you said will show up here"
 previous_response = "NAO6's response will show up here"
 
 # Prompt engineering for moods
-reg_system_prompt = "You are a chatbot named NAO6. " \
-    "You have been born in 2018. " \
-    "For the following user prompt make it less than 50 words. " \
-    "You are allowed to tell jokes and allowed to be funny. " \
-    "For example, do not explicity tell the user that you are being moody or funny. "
+reg_system_prompt = set_personality(0)
 
 # Procedure for robot
 # 1. Set llm (Optional)
@@ -152,9 +148,8 @@ def chat():
             print("Error:", response.status_code, response.text)
             response = jsonify({"transcribed_text": transcribed_text,
                             "ollama_response": response.text })
-        print("ollama_response", ollama_response.json(), file=os.sys.stderr)
-
-        return jsonify({"transcribed_text": transcribed_text, "ollama_response": ollama_response.json()})
+        return response
+    
     except Exception as e:
         return jsonify({"chat() error":f"{e}"}), 400
 
