@@ -1,0 +1,382 @@
+--- Data for  LShoulderPitch  ---
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Value  =  56.0
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LShoulderPitch/Position/Sensor/Value  =  0.905018091202
+Device/SubDeviceList/LShoulderPitch/Position/Actuator/Value  =  0.879439473152
+Device/SubDeviceList/LShoulderPitch/Hardness/Actuator/Value  =  0.394968628883
+Device/SubDeviceList/LShoulderPitch/ElectricCurrent/Sensor/Value  =  0.0320000015199
+Device/SubDeviceList/LShoulderPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LShoulderRoll  ---
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LShoulderRoll/Position/Sensor/Value  =  0.145688056946
+Device/SubDeviceList/LShoulderRoll/Position/Actuator/Value  =  0.147044867277
+Device/SubDeviceList/LShoulderRoll/Hardness/Actuator/Value  =  0.108593337238
+Device/SubDeviceList/LShoulderRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LShoulderRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LElbowYaw  ---
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LElbowYaw/Position/Sensor/Value  =  -0.515465974808
+Device/SubDeviceList/LElbowYaw/Hardness/Actuator/Value  =  0.202867269516
+Device/SubDeviceList/LElbowYaw/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LElbowYaw/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LElbowYaw/Position/Actuator/Value  =  -0.528651714325
+--- Data for  LElbowRoll  ---
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LElbowRoll/Position/Sensor/Value  =  -1.52015209198
+Device/SubDeviceList/LElbowRoll/Position/Actuator/Value  =  -1.52722144127
+Device/SubDeviceList/LElbowRoll/Hardness/Actuator/Value  =  0.137307822704
+Device/SubDeviceList/LElbowRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LElbowRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RShoulderPitch  ---
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Value  =  46.0
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RShoulderPitch/Position/Sensor/Value  =  0.759371995926
+Device/SubDeviceList/RShoulderPitch/Position/Actuator/Value  =  0.736672997475
+Device/SubDeviceList/RShoulderPitch/Hardness/Actuator/Value  =  0.399470418692
+Device/SubDeviceList/RShoulderPitch/ElectricCurrent/Sensor/Value  =  0.01600000076
+Device/SubDeviceList/RShoulderPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RShoulderRoll  ---
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value  =  -0.0368580818176
+Device/SubDeviceList/RShoulderRoll/Position/Actuator/Value  =  -0.0488923229277
+Device/SubDeviceList/RShoulderRoll/Hardness/Actuator/Value  =  0.111664876342
+Device/SubDeviceList/RShoulderRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RShoulderRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RElbowYaw  ---
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RElbowYaw/Position/Sensor/Value  =  1.35908210278
+Device/SubDeviceList/RElbowYaw/Position/Actuator/Value  =  1.36600518227
+Device/SubDeviceList/RElbowYaw/Hardness/Actuator/Value  =  0.112692221999
+Device/SubDeviceList/RElbowYaw/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RElbowYaw/ElectricCurrent/Sensor/Value  =  0.0
+--- Data for  RElbowRoll  ---
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RElbowRoll/Position/Sensor/Value  =  1.44046783447
+Device/SubDeviceList/RElbowRoll/Position/Actuator/Value  =  1.4589343071
+Device/SubDeviceList/RElbowRoll/Hardness/Actuator/Value  =  0.131874576211
+Device/SubDeviceList/RElbowRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RElbowRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipYawPitch  ---
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LHipYawPitch/Position/Sensor/Value  =  -0.518450021744
+Device/SubDeviceList/LHipYawPitch/Position/Actuator/Value  =  -0.52151799202
+Device/SubDeviceList/LHipYawPitch/Hardness/Actuator/Value  =  0.41922056675
+Device/SubDeviceList/LHipYawPitch/ElectricCurrent/Sensor/Value  =  0.432000011206
+Device/SubDeviceList/LHipYawPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipRoll  ---
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LHipRoll/Position/Sensor/Value  =  0.131965875626
+Device/SubDeviceList/LHipRoll/Position/Actuator/Value  =  0.131965875626
+Device/SubDeviceList/LHipRoll/Hardness/Actuator/Value  =  0.262945950031
+Device/SubDeviceList/LHipRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LHipRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipPitch  ---
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Value  =  32.0
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipPitch/Position/Sensor/Value  =  -1.116710186
+Device/SubDeviceList/LHipPitch/Position/Actuator/Value  =  -1.11517596245
+Device/SubDeviceList/LHipPitch/Hardness/Actuator/Value  =  0.624854922295
+Device/SubDeviceList/LHipPitch/ElectricCurrent/Sensor/Value  =  0.01600000076
+Device/SubDeviceList/LHipPitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Offset  =  0.0
+--- Data for  LKneePitch  ---
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Value  =  30.0
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LKneePitch/Position/Sensor/Value  =  0.975582122803
+Device/SubDeviceList/LKneePitch/Position/Actuator/Value  =  -0.0414600372314
+Device/SubDeviceList/LKneePitch/Hardness/Actuator/Value  =  0.990000009537
+Device/SubDeviceList/LKneePitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LKneePitch/ElectricCurrent/Sensor/Value  =  0.0
+--- Data for  LAnklePitch  ---
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Value  =  30.0
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LAnklePitch/Position/Sensor/Value  =  0.923426151276
+Device/SubDeviceList/LAnklePitch/Position/Actuator/Value  =  0.92199999094
+Device/SubDeviceList/LAnklePitch/Hardness/Actuator/Value  =  0.267069041729
+Device/SubDeviceList/LAnklePitch/ElectricCurrent/Sensor/Value  =  0.12800000608
+Device/SubDeviceList/LAnklePitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LAnkleRoll  ---
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Value  =  27.0
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value  =  -0.00149202346802
+Device/SubDeviceList/LAnkleRoll/Position/Actuator/Value  =  0.0
+Device/SubDeviceList/LAnkleRoll/Hardness/Actuator/Value  =  0.25106588006
+Device/SubDeviceList/LAnkleRoll/ElectricCurrent/Sensor/Value  =  0.0960000008345
+Device/SubDeviceList/LAnkleRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RHipYawPitch  ---
+Device/SubDeviceList/RHipYawPitch/Temperature/Sensor/Status  =  0
+--- Data for  RHipRoll  ---
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RHipRoll/Position/Sensor/Value  =  -0.222388029099
+Device/SubDeviceList/RHipRoll/Position/Actuator/Value  =  -0.220854043961
+Device/SubDeviceList/RHipRoll/Hardness/Actuator/Value  =  0.276835799217
+Device/SubDeviceList/RHipRoll/ElectricCurrent/Sensor/Value  =  0.144000008702
+Device/SubDeviceList/RHipRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RHipPitch  ---
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RHipPitch/Position/Sensor/Value  =  -1.05543422699
+Device/SubDeviceList/RHipPitch/Position/Actuator/Value  =  -1.0600361824
+Device/SubDeviceList/RHipPitch/Hardness/Actuator/Value  =  0.639142692089
+Device/SubDeviceList/RHipPitch/ElectricCurrent/Sensor/Value  =  0.672000050545
+Device/SubDeviceList/RHipPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RKneePitch  ---
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Value  =  32.0
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RKneePitch/Position/Sensor/Value  =  0.581428050995
+Device/SubDeviceList/RKneePitch/Position/Actuator/Value  =  -0.0919981002808
+Device/SubDeviceList/RKneePitch/Hardness/Actuator/Value  =  0.990000009537
+Device/SubDeviceList/RKneePitch/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RKneePitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RAnklePitch  ---
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RAnklePitch/Position/Sensor/Value  =  0.923510074615
+Device/SubDeviceList/RAnklePitch/Position/Actuator/Value  =  0.92199999094
+Device/SubDeviceList/RAnklePitch/Hardness/Actuator/Value  =  0.267365336418
+Device/SubDeviceList/RAnklePitch/ElectricCurrent/Sensor/Value  =  0.01600000076
+Device/SubDeviceList/RAnklePitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Status  =  0
+--- Data for  RAnkleRoll  ---
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Value  =  27.0
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value  =  0.00157594680786
+Device/SubDeviceList/RAnkleRoll/Position/Actuator/Value  =  0.0
+Device/SubDeviceList/RAnkleRoll/Hardness/Actuator/Value  =  0.251800268888
+Device/SubDeviceList/RAnkleRoll/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RAnkleRoll/ElectricCurrent/Sensor/Value  =  0.01600000076
+--- Data for  HeadYaw  ---
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/HeadYaw/Position/Sensor/Value  =  -0.0169160366058
+Device/SubDeviceList/HeadYaw/Position/Actuator/Value  =  -0.0245859622955
+Device/SubDeviceList/HeadYaw/Hardness/Actuator/Value  =  0.102526590228
+Device/SubDeviceList/HeadYaw/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/HeadYaw/ElectricCurrent/Sensor/Status  =  0
+--- Data for  HeadPitch  ---
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Value  =  42.0
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/HeadPitch/Position/Sensor/Value  =  -0.00464391708374
+Device/SubDeviceList/HeadPitch/Position/Actuator/Value  =  0.0183660984039
+Device/SubDeviceList/HeadPitch/Hardness/Actuator/Value  =  0.222767427564
+Device/SubDeviceList/HeadPitch/ElectricCurrent/Sensor/Value  =  0.0480000004172
+Device/SubDeviceList/HeadPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LShoulderPitch  ---
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Value  =  56.0
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LShoulderPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LShoulderPitch/Position/Sensor/Value  =  0.905018091202
+Device/SubDeviceList/LShoulderPitch/Position/Actuator/Value  =  0.879439473152
+Device/SubDeviceList/LShoulderPitch/Hardness/Actuator/Value  =  0.394927114248
+Device/SubDeviceList/LShoulderPitch/ElectricCurrent/Sensor/Value  =  0.0480000004172
+Device/SubDeviceList/LShoulderPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LShoulderRoll  ---
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LShoulderRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LShoulderRoll/Position/Sensor/Value  =  0.145688056946
+Device/SubDeviceList/LShoulderRoll/Position/Actuator/Value  =  0.147044867277
+Device/SubDeviceList/LShoulderRoll/Hardness/Actuator/Value  =  0.108858309686
+Device/SubDeviceList/LShoulderRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LShoulderRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LElbowYaw  ---
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LElbowYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LElbowYaw/Position/Sensor/Value  =  -0.515465974808
+Device/SubDeviceList/LElbowYaw/Hardness/Actuator/Value  =  0.202920138836
+Device/SubDeviceList/LElbowYaw/ElectricCurrent/Sensor/Value  =  0.0320000015199
+Device/SubDeviceList/LElbowYaw/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LElbowYaw/Position/Actuator/Value  =  -0.528651714325
+--- Data for  LElbowRoll  ---
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LElbowRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LElbowRoll/Position/Sensor/Value  =  -1.52015209198
+Device/SubDeviceList/LElbowRoll/Position/Actuator/Value  =  -1.52722144127
+Device/SubDeviceList/LElbowRoll/Hardness/Actuator/Value  =  0.13737642765
+Device/SubDeviceList/LElbowRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/LElbowRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RShoulderPitch  ---
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Value  =  46.0
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RShoulderPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RShoulderPitch/Position/Sensor/Value  =  0.759371995926
+Device/SubDeviceList/RShoulderPitch/Position/Actuator/Value  =  0.736672997475
+Device/SubDeviceList/RShoulderPitch/Hardness/Actuator/Value  =  0.399492740631
+Device/SubDeviceList/RShoulderPitch/ElectricCurrent/Sensor/Value  =  0.01600000076
+Device/SubDeviceList/RShoulderPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RShoulderRoll  ---
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RShoulderRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RShoulderRoll/Position/Sensor/Value  =  -0.0368580818176
+Device/SubDeviceList/RShoulderRoll/Position/Actuator/Value  =  -0.0488923229277
+Device/SubDeviceList/RShoulderRoll/Hardness/Actuator/Value  =  0.111776687205
+Device/SubDeviceList/RShoulderRoll/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RShoulderRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RElbowYaw  ---
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RElbowYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RElbowYaw/Position/Sensor/Value  =  1.35908210278
+Device/SubDeviceList/RElbowYaw/Position/Actuator/Value  =  1.36600518227
+Device/SubDeviceList/RElbowYaw/Hardness/Actuator/Value  =  0.112625598907
+Device/SubDeviceList/RElbowYaw/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RElbowYaw/ElectricCurrent/Sensor/Value  =  0.0
+--- Data for  RElbowRoll  ---
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RElbowRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RElbowRoll/Position/Sensor/Value  =  1.44046783447
+Device/SubDeviceList/RElbowRoll/Position/Actuator/Value  =  1.4589343071
+Device/SubDeviceList/RElbowRoll/Hardness/Actuator/Value  =  0.131922125816
+Device/SubDeviceList/RElbowRoll/ElectricCurrent/Sensor/Value  =  0.0960000008345
+Device/SubDeviceList/RElbowRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipYawPitch  ---
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Value  =  40.0
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipYawPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LHipYawPitch/Position/Sensor/Value  =  -0.518450021744
+Device/SubDeviceList/LHipYawPitch/Position/Actuator/Value  =  -0.52151799202
+Device/SubDeviceList/LHipYawPitch/Hardness/Actuator/Value  =  0.41867223382
+Device/SubDeviceList/LHipYawPitch/ElectricCurrent/Sensor/Value  =  0.336000025272
+Device/SubDeviceList/LHipYawPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipRoll  ---
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LHipRoll/Position/Sensor/Value  =  0.131965875626
+Device/SubDeviceList/LHipRoll/Position/Actuator/Value  =  0.131965875626
+Device/SubDeviceList/LHipRoll/Hardness/Actuator/Value  =  0.263252556324
+Device/SubDeviceList/LHipRoll/ElectricCurrent/Sensor/Value  =  0.0320000015199
+Device/SubDeviceList/LHipRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LHipPitch  ---
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Value  =  32.0
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LHipPitch/Position/Sensor/Value  =  -1.11517596245
+Device/SubDeviceList/LHipPitch/Position/Actuator/Value  =  -1.11517596245
+Device/SubDeviceList/LHipPitch/Hardness/Actuator/Value  =  0.625027298927
+Device/SubDeviceList/LHipPitch/ElectricCurrent/Sensor/Value  =  0.0320000015199
+Device/SubDeviceList/LHipPitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LHipPitch/Temperature/Sensor/Offset  =  0.0
+--- Data for  LKneePitch  ---
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Value  =  30.0
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LKneePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LKneePitch/Position/Sensor/Value  =  0.975582122803
+Device/SubDeviceList/LKneePitch/Position/Actuator/Value  =  -0.0414600372314
+Device/SubDeviceList/LKneePitch/Hardness/Actuator/Value  =  0.990000009537
+Device/SubDeviceList/LKneePitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/LKneePitch/ElectricCurrent/Sensor/Value  =  0.0
+--- Data for  LAnklePitch  ---
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Value  =  30.0
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LAnklePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LAnklePitch/Position/Sensor/Value  =  0.923426151276
+Device/SubDeviceList/LAnklePitch/Position/Actuator/Value  =  0.92199999094
+Device/SubDeviceList/LAnklePitch/Hardness/Actuator/Value  =  0.267099022865
+Device/SubDeviceList/LAnklePitch/ElectricCurrent/Sensor/Value  =  0.160000011325
+Device/SubDeviceList/LAnklePitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  LAnkleRoll  ---
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Value  =  27.0
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/LAnkleRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/LAnkleRoll/Position/Sensor/Value  =  -0.00149202346802
+Device/SubDeviceList/LAnkleRoll/Position/Actuator/Value  =  0.0
+Device/SubDeviceList/LAnkleRoll/Hardness/Actuator/Value  =  0.25122398138
+Device/SubDeviceList/LAnkleRoll/ElectricCurrent/Sensor/Value  =  0.0800000056624
+Device/SubDeviceList/LAnkleRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RHipYawPitch  ---
+Device/SubDeviceList/RHipYawPitch/Temperature/Sensor/Status  =  0
+--- Data for  RHipRoll  ---
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RHipRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RHipRoll/Position/Sensor/Value  =  -0.222388029099
+Device/SubDeviceList/RHipRoll/Position/Actuator/Value  =  -0.220854043961
+Device/SubDeviceList/RHipRoll/Hardness/Actuator/Value  =  0.276518523693
+Device/SubDeviceList/RHipRoll/ElectricCurrent/Sensor/Value  =  0.160000011325
+Device/SubDeviceList/RHipRoll/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RHipPitch  ---
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RHipPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RHipPitch/Position/Sensor/Value  =  -1.05850219727
+Device/SubDeviceList/RHipPitch/Position/Actuator/Value  =  -1.0600361824
+Device/SubDeviceList/RHipPitch/Hardness/Actuator/Value  =  0.639344215393
+Device/SubDeviceList/RHipPitch/ElectricCurrent/Sensor/Value  =  0.352000027895
+Device/SubDeviceList/RHipPitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RKneePitch  ---
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Value  =  32.0
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RKneePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RKneePitch/Position/Sensor/Value  =  0.584496021271
+Device/SubDeviceList/RKneePitch/Position/Actuator/Value  =  -0.0919981002808
+Device/SubDeviceList/RKneePitch/Hardness/Actuator/Value  =  0.990000009537
+Device/SubDeviceList/RKneePitch/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RKneePitch/ElectricCurrent/Sensor/Status  =  0
+--- Data for  RAnklePitch  ---
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Value  =  28.0
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RAnklePitch/Position/Sensor/Value  =  0.921976089478
+Device/SubDeviceList/RAnklePitch/Position/Actuator/Value  =  0.92199999094
+Device/SubDeviceList/RAnklePitch/Hardness/Actuator/Value  =  0.267402529716
+Device/SubDeviceList/RAnklePitch/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/RAnklePitch/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RAnklePitch/Temperature/Sensor/Status  =  0
+--- Data for  RAnkleRoll  ---
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Value  =  27.0
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/RAnkleRoll/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/RAnkleRoll/Position/Sensor/Value  =  -0.00302600860596
+Device/SubDeviceList/RAnkleRoll/Position/Actuator/Value  =  0.0
+Device/SubDeviceList/RAnkleRoll/Hardness/Actuator/Value  =  0.25164014101
+Device/SubDeviceList/RAnkleRoll/ElectricCurrent/Sensor/Status  =  0
+Device/SubDeviceList/RAnkleRoll/ElectricCurrent/Sensor/Value  =  0.0
+--- Data for  HeadYaw  ---
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Value  =  38.0
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/HeadYaw/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/HeadYaw/Position/Sensor/Value  =  -0.0169160366058
+Device/SubDeviceList/HeadYaw/Position/Actuator/Value  =  -0.0245859622955
+Device/SubDeviceList/HeadYaw/Hardness/Actuator/Value  =  0.102513052523
+Device/SubDeviceList/HeadYaw/ElectricCurrent/Sensor/Value  =  0.0
+Device/SubDeviceList/HeadYaw/ElectricCurrent/Sensor/Status  =  0
+--- Data for  HeadPitch  ---
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Value  =  42.0
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Status  =  0
+Device/SubDeviceList/HeadPitch/Temperature/Sensor/Offset  =  0.0
+Device/SubDeviceList/HeadPitch/Position/Sensor/Value  =  -0.00617790222168
+Device/SubDeviceList/HeadPitch/Position/Actuator/Value  =  0.0183660984039
+Device/SubDeviceList/HeadPitch/Hardness/Actuator/Value  =  0.222631067038
+Device/SubDeviceList/HeadPitch/ElectricCurrent/Sensor/Value  =  0.0320000015199
+Device/SubDeviceList/HeadPitch/ElectricCurrent/Sensor/Status  =  0
